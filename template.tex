@@ -16,64 +16,40 @@
 \usepackage{natbib}
 \usepackage{doi}
 
-\title{A template for the \emph{arxiv} style}
+\usepackage{amsmath}
+\usepackage{nomencl}
+
+
+\title{A dynamic causal model of the hallucinatory effects of psilocybin}
 
 % Here you can change the date presented in the paper title
 %\date{September 9, 1985}
 % Or remove it
 %\date{}
 
-\newif\ifuniqueAffiliation
-% Comment to use multiple affiliations variant of author block 
-\uniqueAffiliationtrue
-
-\ifuniqueAffiliation % Standard variant of author block
-\author{ \href{https://orcid.org/0000-0000-0000-0000}{\includegraphics[scale=0.06]{orcid.pdf}\hspace{1mm}David S.~Hippocampus}\thanks{Use footnote for providing further
-		information about author (webpage, alternative
-		address)---\emph{not} for acknowledging funding agencies.} \\
-	Department of Computer Science\\
-	Cranberry-Lemon University\\
-	Pittsburgh, PA 15213 \\
-	\texttt{hippo@cs.cranberry-lemon.edu} \\
-	%% examples of more authors
-	\And
-	\href{https://orcid.org/0000-0000-0000-0000}{\includegraphics[scale=0.06]{orcid.pdf}\hspace{1mm}Elias D.~Striatum} \\
-	Department of Electrical Engineering\\
-	Mount-Sheikh University\\
-	Santa Narimana, Levand \\
-	\texttt{stariate@ee.mount-sheikh.edu} \\
-	%% \AND
-	%% Coauthor \\
-	%% Affiliation \\
-	%% Address \\
-	%% \texttt{email} \\
-	%% \And
-	%% Coauthor \\
-	%% Affiliation \\
-	%% Address \\
-	%% \texttt{email} \\
-	%% \And
-	%% Coauthor \\
-	%% Affiliation \\
-	%% Address \\
-	%% \texttt{email} \\
-}
-\else
 % Multiple affiliations variant of author block
 \usepackage{authblk}
 \renewcommand\Authfont{\bfseries}
 \setlength{\affilsep}{0em}
 % box is needed for correct spacing with authblk
 \newbox{\orcid}\sbox{\orcid}{\includegraphics[scale=0.06]{orcid.pdf}} 
+\author[1,2,3]{%
+	\href{https://orcid.org/0009-0002-8002-3191}{\usebox{\orcid}\hspace{1mm}Adam Manoogian\thanks{\texttt{adam.manoogian@monash.edu}}}%
+}
+
+\author[2]{%
+	\href{https://orcid.org/0000-0002-6081-3367}{\usebox{\orcid}\hspace{1mm}Leonardo Novelli\thanks{\texttt{leonardo.novelli@monash.edu}}}%
+}
 \author[1]{%
-	\href{https://orcid.org/0000-0000-0000-0000}{\usebox{\orcid}\hspace{1mm}David S.~Hippocampus\thanks{\texttt{hippo@cs.cranberry-lemon.edu}}}%
+	\href{https://orcid.org/0000-0003-3906-3060}{\usebox{\orcid}\hspace{1mm}Jakob  Hohwy\thanks{\texttt{jakob.hohwy@monash.edu}}}%
 }
-\author[1,2]{%
-	\href{https://orcid.org/0000-0000-0000-0000}{\usebox{\orcid}\hspace{1mm}Elias D.~Striatum\thanks{\texttt{stariate@ee.mount-sheikh.edu}}}%
+\author[2,3]{%
+	\href{https://orcid.org/0000-0002-0779-9439}{\usebox{\orcid}\hspace{1mm}Adeel  Razi\thanks{\texttt{adeel.razi@monash.edu}}}%
 }
-\affil[1]{Department of Computer Science, Cranberry-Lemon University, Pittsburgh, PA 15213}
-\affil[2]{Department of Electrical Engineering, Mount-Sheikh University, Santa Narimana, Levand}
-\fi
+
+\affil[1]{Monash Centre for Consciousness and Contemplative Studies, Monash University, Melbourne, Australia}
+\affil[2]{Monash Biomedical Imaging, Monash University, Clayton, VIC, Australia}
+\affil[3]{Turner Institute for Brain and Mental Health, Monash University, Clayton, VIC, Australia}
 
 % Uncomment to override  the `A preprint' in the header
 %\renewcommand{\headeright}{Technical Report}
@@ -86,129 +62,331 @@
 \hypersetup{
 pdftitle={A template for the arxiv style},
 pdfsubject={q-bio.NC, q-bio.QM},
-pdfauthor={David S.~Hippocampus, Elias D.~Striatum},
+pdfauthor={Adam~Manoogian},
 pdfkeywords={First keyword, Second keyword, More},
 }
-
 \begin{document}
 \maketitle
 
 \begin{abstract}
-	\lipsum[1]
+
+The heterogeneity of schizophrenia and psychosis makes it difficult to isolate the mechanisms of hallucinations within patients. Psychedelic usage results in a wide range of visual and auditory hallucinations, offering a useful drug model. Several network hypotheses have been formulated to understand SZ hallucinations, and here we test relevant regions with an effective connectivity analysis.
+
+Under a baseline controlled MRI study, 62 participants were administered psilocybin and underwent several non-task oriented scans, including rest, meditation, music listening, and passive movie watching. Participants then completed the 11D-ASC questionnaire, for which sub-scales capturing subjective visual and auditory effects were used as a proxy to infer the magnitude of hallucinatory experience during the session. Spectral dynamic causal modeling (spDCM) was used to estimate connectivity changes for each condition, and the magnitude of hallucinatory experience was used as a co-variate to understand the relationship between reported symptoms and altered connectivity.
+
+Results show a widespread change in frontal, sensory and subcortical connectivity following psilocybin administration. A central role of the hippocampus is found when controlling for hallucination proneness, where it serves as the main driver of sensory regions. These results give weight to the "memory-driven effect" of hallucinations in schizophrenia. Hippocampal driven activation of the right dlPFC during auditory input may indicate a connection relevant to the development of delusions. In contrast, the thalamic influence on frontal regions is inversely related to symptoms, questioning the broad applicability of the thalamic filter to psilocybin modulation of sensory input.   
+
 \end{abstract}
 
 
 % keywords can be removed
-\keywords{First keyword \and Second keyword \and More}
+\keywords{dynamic causal model \and psilocybin \and hallucinations \and schizophrenia}
 
+%abbreviations syntax
+\makenomenclature
+\renewcommand{\nomname}{Abbreviations}
+%\renewcommand{\nompreamble}{The next list describes several abbreviations that will be later used within the body of the document}
+\nomenclature{\(Sz\)}{Schizophrenia}
+\nomenclature{\(DCM\)}{Dynamic Causal Modeling}
+\nomenclature{\(AVH\)}{Auditory verbal hallucinations}
+\nomenclature{\(SAL\)}{Salience Network}
+\nomenclature{\(DMN\)}{Default Mode Network}
+\nomenclature{\(EN\)}{Executive Network}
+\nomenclature{\(dlPFC\)}{dorsolateral prefrontal cortex}
+
+\printnomenclature
 
 \section{Introduction}
-\lipsum[2]
-\lipsum[3]
 
+The formation and fomentation of hallucinations is difficult to fully capture in schizophrenia \citep{powers2025computational}. Interacting and compensatory factors are plentiful over the progression of hallucination formation in schizophrenia, necessitating alternative analyses to isolate their mechanisms. Psilocybin administration offers a controlled insight into relevant regions implicated in reported hallucinations \citep{waters_future_2023}. Here, we explore the relevant regions associated with hallucinations during administration of psilocybin, as motivated by findings in schizophrenia research. Given widespread dysconnection within schizophrenia \citep{oneill_dysconnectivity_2019, dong_dysfunction_2018}, we leverage Dynamic Causal Modeling (DCM), a model-driven approach that allows causal interpretations of fMRI BOLD activity from interactions between regions of interest. 
 
-\section{Headings: first level}
+Psilocybin and other serotonergic agonists have previously been used as pharmacological models of (prodromal) psychosis \citep{carhart-harris_functional_2013}. Hallucinations arising from psychosis and psilocybin usage have conceptual similarities \citep{leptourgos_hallucinations_2020}, and mechanistic similarities \citep{llado-pelfort_effects_2018}. Non-clinical and individuals with psychosis appear to experience auditory-verbal hallucinations (AVH)-similarly, indicating brain network involvements in hallucinations may be dissociable from broader symptoms \citep{diederen2012auditory}. Yet there still remains a wide heterogeneity of hallucinations in of themselves, necessitating an understanding of different manifestations of their underlying brain network dynamics \citep{waters_auditory_2012}. For example, phenomenological differences between hallucinations within psychosis and between psychedelics usage exist. Psychedelic hallucinations are primarily visual, and schizophrenia hallucinations auditory, visual or a combination of the two, with activation patterns more representative of the respective associative region \citep{stoliker_neural_2025, leptourgos_hallucinations_2020}. Here, we attempt to better capture the etiology by describing the hallucination type through various passive stimuli conditions, as well as targeted scale analyses.  
+
+Hallucinations due to psychedelics and schizophrenia have been comprehensively compared by the \textit{International Consortium on Hallucination Research} \citep{leptourgos_hallucinations_2020}. A non-comprehensive summary of findings in the neuroimaging of hallucinations can be broken up into: 
+1) Disruptions between the default mode network (DMN), executive network (EN) and salience networks (SN) (aka the "triple-network" theory \citep{menon_large-scale_2011, bolton_triple_2020})
+2) Increases in activations between the hippocampus (Hipp) and associative cortices \citep{amad_multimodal_2014, uscatescu_effective_2021} 
+3) Thalamo-cortical interactions are disrupted, but with mixed directional effect \citep{giraldo-chica_review_2017}. The thalamus also plays a central role in striatal dysfunction.
+
+We describe a few key nodes of interest - the dorsolateral prefrontal cortex, thalamus, hippocampus, and auditory and visual cortices - for which connections between them capture aspects of each theory.
+
+The triple network model describes three disrupted networks, the default mode network (DMN), central executive network (CEN), and salience network (SAL) \citep{Menon2011}. The DMN is commonly related to introspection and internal monitoring, the CEN to task-related (external) stimuli, while the SAL modulates the switches between these networks.  Resting state FC as early as the first-episode of psychosis shows a trend of hypo-connectivity of the intra and inter-network DMN connections \citep{oneill_dysconnectivity_2019}. The SN also displays hypo-connectivity with the DMN and SEN, but hyper-connectivity with sensory regions \citep{oneill_dysconnectivity_2019}. However, triple network disconnection may only be relevant for subclinical trait factors, and DMN activation may not be involved during the experience of hallucinations \citep{fuentes-claramonte2021auditory, martino2024working}.  
+
+The dorsolateral prefrontal cortex (dlPFC), part of the CEN \citep{Seeley2007network} or sometimes delegated to a frontoparietal network \citep{menon_integrative_2023}, plays a role in filtering out distracting (or irrelevant) information, shown during attention and working memory tasks \citep{smucny_8_2023, sheffield_cognition_2016}. Its role in cognitive control may be relevant in hallucinatory experiences \citep{jardri_are_2016, hugdahl_role_2025}, shown through controlling switches between hallucination networks in induced hallucinations \citep{dhanis_real-time_2024}. The dlPFC itself shows hypo-connectivity between the DMN in Sz \citep{dong_dysfunction_2018}, and dlPFC FC reduces following the progression of psychosis \citep{sabaroedin_circuit_2023}. In addition, spDCM in first episode Sz patients shows dlPFC to hippocampal effective connectivity changes \citep{cui_anterior_2015}. dlPFC also has abnormal connections between sensory regions, exemplified by resting state FC to V4 \citep{chechko_differential_2018}. 
+ 
+Thalamic gating, the filtering of both internal and external stimulus information towards the cortex, is thought to be a driver of altered perception \citep{avram_bridging_2021}. The thalamus, an associative hub, is connected to dlPFC through the striatum, forming a cortico-striatal loop involved in cognitive impairments. Thalamus hypoconnectivity with the dlPFC specifically is also well established, as early as first episode schizophrenia \citep{zhou_functional_2007}. Previous dlPFC subcortical connections within the context of cortico-striato-thalamic dysfunction, where midbrain and amygdala inputs are important to the progression of psychosis, are largely dopaminergic \citep{sabaroedin_circuit_2023}. In the same vein, during LSD administration, thalamic FC is altered along the striatal pathways \citep{preller_effective_2019}. The pharmacological model of psilocybin used here may inform the role of dlPFC, hippocampus and thalamic interactions absent dopaminergic input. 
+
+Thalamocortical FC is hyper-connected between sensory regions, and hypo-connected with prefrontal regions \citep{ramsay_activation_2019}. DMN and task-positive coupling, as well as thalamocortical interactions, have previously been compared between psilocybin and Sz \citep{carhart-harris_functional_2013, avram_bridging_2021}. The switching between relevant networks may also be modulated by memory processes \citep{jardri_neurodynamic_2013}. Particularly, the hippocampus shows differences in effective connectivity between regions of the three networks \citep{uscatescu_effective_2021}. When accounting for hallucinatory periods, the switch to a hallucinatory state is likely initiated by hippocampal modulation of the SAL \citep{lefebvre_network_2016}. The SAL goes on to induce a decrease in DMN activity until the CEN regains dominance \citep{lefebvre_network_2016}. 
+
+Theoretical proposals of AVH center around spontaneous activation stemming from memory intrusions, expressed through connections between memory and language areas \citep{sommer_resting_2012}. The role of the hippocampus in the development of schizophrenia is well established, with ongoing atrophy throughout the progression of the disease \citep{duan_longitudinal_2015}. It serves as a central hub, taking in input from audio and visual cortices and projecting forward to prefrontal regions of the brain. Resting state networks in SZ patients with a AVH history show a range of hippocampal dependencies, but with mixed results on the role of its connectivity \citep{clos_aberrant_2014, diederen_deactivation_2010}. Elevated hippocampal connectivity with auditory cortices may indicate bias towards internal information, yet a directionality of the hippocampus connection is not yet confirmed \citep{alderson-day_auditory_2016}. In Sz, hallucinations are interpreted through the hippocampus \citep{jardri_cortical_2011, jardri_neurodynamic_2013}, as both hippocampus and para-hippocampal gyrus are largely involved during AVH experiences \citep{jardri_cortical_2011}. There is evidence the hippocampus may serve a precursor to hallucinations, due to activation preceding the experience and a lack of activation during \citep{diederen_deactivation_2010, hoffman_using_2011}. 
+
+Hippocampus FC to auditory and occipital regions correlates with clinical response \citep{kraguljac_aberrant_2016}. In addition, there is consistent over-activation of auditory and visual cortices during the associated hallucination type \citep{zmigrod_neural_2016}. Aberrant FC in speech processing areas, such as Broca's, Wernicke's areas (and their right hemisphere homologues) and the pre-central gyrus, to frontal regions, indicates speech decoding involvement in hallucinations \citep{fuentes-claramonte2021auditory}. Medial temporal gyrus (MTG) local connectivity is disrupted in early onset schizophrenia, scales with positive symptoms such as hallucinations, and is active during AVH \citep{li_altered_2025, jardri_cortical_2011}. MTG, part of the semantic network, may be have a relationship between salience and default mode networks \citep{briggs_unique_2021}. The middle occipital gyrus shows activation changes during auditory hallucinations \citep{zmigrod_neural_2016}. Sz patients spent more time in a visual network state with negative connectivity to the medial temporal gyrus, indicating some cross-sensory network interaction \citep{sendi_multiple_2021}.  We also include a visual ROI here to capture visual hallucinations, which are more common in psilocybin \citep{mo_network_2024}. Spontaneous activation theories of hallucinations are associated with activation of the primary sensory cortices, but fail to incorporate the interplay of other relevant regions, such as the hippocampus \citep{hare_modality-dependent_2017}. 
+
+Dynamic causal modelling is a hypothesis driven approach to estimate the effective connectivity between a priori chosen regions and connections. Without task-based experimental conditions, we rely on resting state fMRI time series, as measured by spectral dynamic causal modelling (spDCM) \citep{friston_dcm_2014, novelli_spectral_2024}. Individual subject DCM's are first collated, for which the parameters on the spectrum of connection strengths (cross-spectral density) serve as within-subject effects. Hypotheses about within-subject effects (group-averaged connections and the effect of behavioral co-variates) are then tested through the PEB approach (Parametric Empirical Bayes) \citep{zeidman_guide_2019, stephan_ten_2010}. For this, we propose a dynamical causal model that involves the following areas, described bilaterally: dorsolateral prefrontal cortex (dlPFC), medial temporal gyrus (MTG), superior occipital gyrus (SOG), thalamus (Thal) and hippocampus (Hipp). The changes in connections between these areas will explore the effective interactions between sensory, memory and executive regions \citep{jardri_neurodynamic_2013}. We apply this model to an fMRI dataset, with separate baseline and psilocybin administration days, and four passive experimental contexts - rest (instructed as eyes closed), guided meditation, music, and movie. A secondary analysis will compare the scales and neural activation specific to visual or auditory areas, assessing the correlations between reported hallucinations (as reported by 11D-ASC categories) and effective connectivity. 
+
+\section{Methods}
 \label{sec:headings}
 
-\lipsum[4] See Section \ref{sec:headings}.
+Relevant study design details necessary for this analysis are included below. A comprehensive overview of the previous PsiConnect project (Psilocybin, Connectivity and Context) can be found at \cite{novelli_psiconnect_2025, stoliker_psychedelics_2025}. The previous study was registered at anzctr.org.au (ACTRN126210013758) and approved by the Monash University Human Research Ethics Committee (MUHREC). 
 
-\subsection{Headings: second level}
-\lipsum[5]
-\begin{equation}
-	\xi _{ij}(t)=P(x_{t}=i,x_{t+1}=j|y,v,w;\theta)= {\frac {\alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}{\sum _{i=1}^{N} \sum _{j=1}^{N} \alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}}
-\end{equation}
+\subsection{Experimental Design}
 
-\subsubsection{Headings: third level}
-\lipsum[6]
+65 healthy participants, aged 18-55, were screened to be naive to psychedelics before undergoing an open-label baseline-controlled study. Half of the participants were given a meditative training course preceding testing. Baseline and drug administration day were two weeks apart, on which the second day the participants were orally administered 19 mg psilocybin. Approximately 80 minutes after dosing, participants completed the following conditions in the same order:  
+- resting state (eyes closed)
+- meditation
+- audio stimuli consisting of an ethereal soundscape 
+- passive visual stimuli, consisting of silent slowly moving clouds
 
-\paragraph{Paragraph}
-\lipsum[7]
+\subsection{Behavioral Measures}
 
+The range of scales used in this dataset have been previously reported \citep{novelli_psiconnect_2025}. We focus on the scales that represent hallucinatory potential during drug administration. These scales were given post administration of psilocybin, and are designed to capture the subjective effects throughout the entire time course of the drug effects. 
 
+The scales here are used as a proxy for hallucinatory activity during the fMRI sessions. Subjective experiences were captured using the Altered States of Consciousness questionnaire approximately 360 minutes following dosage. To capture visual, auditory or a composite of hallucinatory effects, we assessed a composite of the "audiovisual", "complex" and "perceptual" sub-scales within the 11D-ASC breakdown to assess overall hallucinatory effects. Several other breakdowns of the ASC were conducted and are available in the supplementary data. These consist of the 5D-ASC (5 dimensions of altered consciousness) sub-scales of "auditory alterations" and "visionary restructuralization", which could be interpreted as proxies for purely auditory or visual hallucinations.  
 
-\section{Examples of citations, figures, tables, references}
-\label{sec:others}
+\subsection{Dynamic Causal Modeling}
 
-\subsection{Citations}
-Citations use \verb+natbib+. The documentation may be found at
-\begin{center}
-	\url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf}
-\end{center}
+Dynamic Causal Modeling (DCM) involves pre-specifying a generative model of relevant brain regions before assessing the causal relationships between these regions. The parameters that express the positive or negative influence throughout a timeseries, commonly used as the excitatory or inhibitory influence on BOLD data in neuroscience. Here, we used spectral DCM (spDCM), designed for resting state fMRI analyses, to understand the changes in connectivity patterns as a result of psilocybin administration under various conditions \citep{friston_dcm_2014, razi_construct_2015}. spDCM infers the effective connectivity, cross spectral density, that best reproduces the cross-correlations between all measurements at all time lags and captures spontaneous endogenous fluctuations in the absence of experimental inputs \citep{novelli_spectral_2024}. 
 
-Here is an example usage of the two main commands (\verb+citet+ and \verb+citep+): Some people thought a thing \citep{kour2014real, keshet2016prediction} but other people thought something else \citep{kour2014fast}. Many people have speculated that if we knew exactly why \citet{kour2014fast} thought this\dots
+\subsection{Region Selection}
 
-\subsection{Figures}
-\lipsum[10]
-See Figure \ref{fig:fig1}. Here is how you add footnotes. \footnote{Sample of the first footnote.}
-\lipsum[11]
-
-\begin{figure}
-	\centering
-	\fbox{\rule[-.5cm]{4cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
-	\caption{Sample figure caption.}
-	\label{fig:fig1}
-\end{figure}
-
-\subsection{Tables}
-See awesome Table~\ref{tab:table}.
-
-The documentation for \verb+booktabs+ (`Publication quality tables in LaTeX') is available from:
-\begin{center}
-	\url{https://www.ctan.org/pkg/booktabs}
-\end{center}
-
+We selected regions of interest that attempt to encapsulate aspects of previously reported theories in schizophrenia involving hallucinations \citep{leptourgos_hallucinations_2020}. The following regions were used: dorsolateral prefrontal cortex, hippocampus, thalamus, superior occipital gyrus and medial temporal gyrus. These regions were localized using the AAL atlas template (Version 3.0.4) and a mask was created with the WFU PickAtlas Tool \citep{tzourio-mazoyer_automated_2002}. 
+Each region was assessed bilaterally, given inter-hemispheric connectivity differences in temporal and memory regions, which correlate with hallucinations \citep{chen_reduced_2022}. %in stg specifically
 
 \begin{table}
-	\caption{Sample table title}
+	\caption{AAL notation of regions of interest}
 	\centering
-	\begin{tabular}{lll}
+	\begin{tabular}{llll}
 		\toprule
-		\multicolumn{2}{c}{Part}                   \\
+		% \multicolumn{2}{c}{Part}                   \\
 		\cmidrule(r){1-2}
-		Name     & Description     & Size ($\mu$m) \\
+		AAL no.     & Anatomical Description     & AAL label & Coordinates \\
 		\midrule
-		Dendrite & Input terminal  & $\sim$100     \\
-		Axon     & Output terminal & $\sim$10      \\
-		Soma     & Cell body       & up to $10^6$  \\
+		5,6     & middle frontal gyrus  &  frontal\_mid & -   \\
+        41,42 	& hippocampus  &  hippocampus  & -   \\
+        57,58   & superior occipital gyrus  & occipital\_sup  & -   \\
+		81,82   & thalamus  &  thalamus  & -   \\
+        85,86   & medial temporal gyrus  & temporal\_mid   & -   \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:table}
+
+    \vspace{0.5em} % small vertical space
+    {\footnotesize \textit{Note.} Regions used in all subsequent models}
+
 \end{table}
 
-\subsection{Lists}
-\begin{itemize}
-	\item Lorem ipsum dolor sit amet
-	\item consectetur adipiscing elit.
-	\item Aliquam dignissim blandit est, in dictum tortor gravida eget. In ac rutrum magna.
-\end{itemize}
+With this modelling setup, we can summarize the connections as:
+1) "top-down": 
+from dlPFC to: HC, sensory cortices
+2) "memory outwards" 
+from HC to: dlPFC / sensory cortices
+3) bottom up: 
+sensory to HC, thalamus, dlPFC
+
+\subsection{DCM specification and inversion}
+
+The five ROIs were specified bilaterally and specified with a fully-connected DCM model, with no exogenous inputs, giving 10 nodes. For each subject and session, a BOLD timeseries for each region is extracted based on the ROIs. The specified generative model for each subject is then inverted using spectral DCM, which describes the observed cross-spectral density for each subject with effective connectivity, the influence that one region exerts over another \citep{friston_dcm_2014, novelli_spectral_2024}. 
+
+\subsection{Second Level Analysis - Parametric Empirical Bayes}
+
+Between-subject effects are calculated with a Bayesian General Linear Model (GLM), for which individual differences of effective connectivity are averaged into group level connection strengths. The group-level parameters are then tested within the Parametric Empirical Bayes (PEB) framework, for which the expected values and covariance of the connectivity parameters are weighted \citep{friston_bayesian_2016}. Bayesian model averaging is then conducted to select the most probable model, which accounts for the likelihood of reduced models. 
+
+PEB is a general linear model, as shown by \ref{eq:PEB}, for which the $\theta$ represents the connectivity parameters of individual subjects DCM. X defines the design matrix. 
+\begin{align} \label{eq:PEB}
+    \theta ^{(1)}=X\theta ^{(2)}+\epsilon ^{(2)}
+\end{align}
+
+The Bayesian Model Average also provides an average of parameters weighted by the most probable models specified. Here, we assess the effects of those parameters. We base our analysis off of free energy thresholds, for which posterior probabilities of parameters in the now reduced PEB model are compared against evidence for all other models with that parameter switched on. In assessing the models, we only consider parameters with "strong evidence" (Pp > .99) \citep{kass_bayes_1995}. 
+
+%Bayesian model comparison enabled the discrimination between models that describe connectivity and self-connectivity through both inhibition or excitation. 
+
+\subsection{Interpreting the Results}
+
+The metric representing connectivity between nodes is measured in Hertz (Hz) in spDCM. Hz quantifies the inverse rate of change in neural states per unit time in a connection. Self-connections are unit-less, as they are log-scaled to make model estimation numerically stable. Behavioral associations express the strength of association between connectivity parameters and behavioral scores. In essence, how much does a particular connection correlate with a scale variable. These are estimated as normalised beta $(\beta)$ coefficients when fitting the PEB GLM. A posterior probability > .99 (very strong evidence) was used as the significance threshold for both connectivity and behavioral associations throughout.
+
+\subsection{Model Space}
+
+The following models consist of comparisons of PEB-averaged connectivity across different conditions. The analyses labeled 'change' considers the same condition, but on sessions pre and post dosage, whereas 'contrast' analyses compare between two differing conditions while using the mean of both groups as a baseline. 
+
+'Behavioral associations' does not explicitly look at connectivity, but rather shows the linear association of connectivity and the 11D-ASC sub-scale co-variates. The mean connectivity analyses for each condition is available in \ref{Supplementary}. For simplicity in interpretation, the analyses conducted with 'behavior associations' were constrained by only the significant changes in connectivity in the condition respective 'change' analysis. 
+
+
+\begin{table}
+	\caption{Model Space}
+	\centering
+	\begin{tabular}{llll}
+		\toprule
+		% \multicolumn{2}{c}{Part}                   \\
+		\cmidrule(r){1-2}
+		Model number     & PEB type     & Condition & Covariates(s) \\
+		\midrule
+		1a     & Change  &  rest & -   \\
+		2a     & Change  &  music  & -   \\
+		3a     & Change       &  movie & - \\
+		4a     & Change       &  meditation & - \\        % 2a      &   contrast & rest vs. movie & - \\
+        % 2b      &   contrast & rest vs. m usic & - \\
+        % 2c      &   contrast & music vs. movie & - \\
+        % 3a.    &   behavioral association & music & 5D-ASC "auditory" \\
+        % 3b.    &   behavioral association & movie & 5D-ASC "visual" \\
+        1b &   behavioral association & rest & 11D-ASC composite \\
+        2b & behavioral association & music & 11D-ASC composite \\
+        % 5a. & behavioral association & movie & clouds scale \\
+        % 6a.    &   behavioral association & rest & 5D-ASC "auditory" \\
+        % 6b.    &   behavioral association & rest & 5D-ASC "visual" \\
+        3b    &   behavioral association & movie & 11D-ASC composite \\
+        4b    &   behavioral association & meditation & 11D-ASC composite \\
+        
+		\bottomrule
+	\end{tabular}
+	\label{tab:table}
+
+    \vspace{0.5em} % small vertical space
+    {\footnotesize \textit{Note.} 'Change' refers to pre versus post-dose effects. 'Behavioral Association' look at the correlation of post-dose activation and behavioral symptoms measured with ASC subscales (as measured through normalised beta coefficients).}
+    %Models 2a–2c contrast different post-dose conditions. 
+
+\end{table}
+
+\section{Results}
+
+%this analysis was not done. and was only run as bayesian model analysis. is it necessary to run bayesian model selection? I was under the impression it runs every submodel automatically now, is there a way to view that? 
+Our results show that, in the rest condition, in a network of 10 regions, the difference between psilocybin and baseline on participants’ BOLD response could best be explained by a fully connected model. This provided a better explanation (with [--]\% probability]) than all possible reduced models.
+%A fully connected model was most probable for n participants. 
+%for all conditions? 
+
+\subsection{The effect of Psilocybin during rest conditions}
+
+\begin{figure}[h]
+    \centering
+    \hspace*{-0.25in}  
+    \includegraphics[width=1.2\textwidth, height=1.2\textheight, keepaspectratio]{fig/combined_PEB_analysis_rest.png}
+    \caption{Model 1: For captions a-c, the strength of each connection is shown in Hz. Self connections are transformed (f(x) = -log(2x)) for interpretability. a) The strength of each connection during the "pre" session b) The strength of each connection during the "post" session, with psilocybin administration c) The difference between the post and pre conditions. The heatmap reflects the strengthening or weakening of a connection, as calculated as far the connection strength moves away or toward, respectively, 0. The sign of the connection represents whether it is excitatory or inhibitory during psilocybin; an asterisk is used to indicate the connection changed the sign of its connection. d) The association of the behavioral variable to each connection is shown as indicated by the heatmap color. Dotted boxes without color show possible, or "turned on", correlations explored in this model, as motivated by the connections changed due to psilocybin administration. }
+    \label{fig:m1}
+
+\end{figure}
+
+%summary of rest 
+To assess the effect of hallucinations due solely to psilocybin, we first describes pre versus post connectivity during rest \ref{fig:m1}. As a result of psilocybin administration, the left dlPFC contralateral connections more excitatory (increase in .09Hz from right to left). There are differing top-down effects of each side of the dlPFC. The left dlPFC top-down effects to the contralateral Hipp, SOG and MTG shift inhibitory (change in -.12, -.07 and -.13 Hz, respectively, from non-significance). In contrast, the right dlPFC ipsilateral effects to the same regions turn increasingly excitatory, with the MTG flipping in influence (change in .12, .11, and .15 hz, respectively). The right dlPFC afferent to the lThal becomes inhibitory (n.s. to -.13Hz). 
+
+Hippocampal influences towards sensory regions show lateral dependent trends. The lHipp afferents largely turn inhibitory (-.30 and -.15Hz to left and right SOG, and -.16Hz to right STG), with exception of a lack of change in the excitatory self contralateral connection (.20Hz). Instead, the rHipp-rdlPFC becomes excitatory (.10Hz from n.s.), in addition to the left SOG (.10Hz from n.s.), while the left MTG becomes less inhibitory (-.21Hz to .09Hz). Both Hipp contralateral influence on the Thal become negative (-.13Hz left to right, and -.10Hz right to left). The Thal inhibits the right dlPFC (-.08Hz from n.s.), much like the lHipp. The right MTG is also inhibited by the rThal (-.11Hz). The sensory cortex ROIs show changes in connections between them. The lSOG-rSOG connection becomes increasingly excitatory (.13 to .17Hz), and lSOG-lMTG loses its inhibitory effect (-.10 to .01Hz). The rMTG inhibits the lSOG (n.s. to -.09Hz). The lSOG also inhibits the lThal (n.s. to -.13Hz). The right SOG, which was inhibitory towards every other region in the model, only becomes further inhibitory towards the lMTG (-.12Hz change). The MTG contralaterally inhibits (-.07Hz) and excites (.08Hz) the rdlPFC. 
+
+In summary, the changes in this network due solely to psilocybin can be broadly summarized as: the ldlPFC broadly (further) inhibits contralateral Hipp and sensory regions, whereas the rdlPFC shifts towards excitation of the same regions. The lHipp also extends its broad inhibition of most contra-lateral regions, whereas the rHipp previously broad inhibition is weakened towards sensory regions. Sensory driven effects display cross-talk, with MTG and SOG affecting eachother. Widely, the Thal is increasingly inhibited by the dlPFC, Hipp and SOG. 
+
+We now explore how these changes correlate with the hallucinatory symptoms in a DCM for which connections are constrained by the previously discussed significant connection changes due to psilocybin \ref{fig:m1}d. Hallucinatory symptoms correlate negatively with left dlPFC contralateral, inhibitory activation of the rHipp ($\beta = -.08$, -.12Hz change). right dlPFC contralateral inhibition of the lThal correlates with symptoms ($\beta = .08$, -.13Hz change), as does the inverse connections shift towards inhibition ($\beta = .10$, -.08Hz change). Left hippocampal driven inhibition of contralateral sensory cortices and Thal each correlate with hallucinatory symptoms ($\beta = .12$, -.15Hz change to right SOG; $\beta = .08$, -.16Hz change to right MTG; $\beta = .16$, -.13Hz change to rThal). Only the right MTG excitation of the right dlPFC correlates with symptoms ($\beta = .10$, .08Hz change). 
+
+%-summary notes - right occipital lobe is excited a lot
+
+\subsection{Psilocybin induced changes during music}
+
+\begin{figure}[h]
+    \centering
+    \hspace*{-0.25in}  
+    \includegraphics[width=1.2\textwidth, height=1.2\textheight, keepaspectratio]{fig/combined_PEB_analysis_music.png}
+    %\caption{mod}
+    \label{fig:m2}
+\end{figure}
+
+Now, we compare the pre versus post psilocybin change in connectivity during the music listening condition \ref{fig:m2}. Here, the temporal lobes are of interest, as psilocybin adminsitration may change the interpretation of the audio input in this condition. As a result of psilocybin, the temporal lobe becomes largely inhibiting of all other regions of interest. The left MTG inhibits the contralateral dlPFC, Hipp and Thal, as well as the SOG bilaterally. the right MTG also goes on to inhibit the dlPFC and contralateral MTG, but does not reduce its excitation of the ipsilateral Hipp and SOG. Top down inputs onto the rHipp are contrary, with the psilocybin pushing both both afferents to the hippocampi inhibitory from the right dlPFC, and excitatory from the left dlPFC. Top-down excitations of the MTG and STG are present. From the Hipp, the left seemingly drives inhibition of MTG and the right excitation. Whereas the rHipp flips its connection to both Thal inhibitory. 
+
+Symptom severity increases with hippocampal driven inhibition of of the contralateral MTG. Again, the Thal shows input and lateral dependency regarding its correlations with hallucinations. lThal inhibition from the SOG is positively correlated to hallucinations, but rThal inhibition from the left MTG is inversely related to correlations. Indeed, temporal lobe afferent inhibition is generally inversely correlated to hallucinations. 
+
+\subsection{Psilocybin as a result of movie watching}
+
+\begin{figure}[h]
+    \centering
+    \hspace*{-0.25in}  
+    \includegraphics[width=1.2\textwidth, height=1.2\textheight, keepaspectratio]{fig/combined_PEB_analysis_movie.png}
+    %\caption{model 3}
+    \label{fig:m3}
+\end{figure}
+
+The movie condition is the most unique amongst the conditions, as the participants were instructed to have their eyes open. As a result of psilocybin administration during movie watching, the dlPFC contra-laterally excites itself (from right to left, .06 to .23Hz change; from left to right, n.s. to .12Hz). Top-down changes include ipsilateral excitation of the MTG (left and right both .13Hz increase from n.s.), and a shift towards ipsilateral excitation of the rThal (-.12hz to .05Hz).The rThal in turn, goes back up to excite the left dlPFC (.08Hz), while the other contralateral connection further inhibits (-.09 to -.19Hz change). Hippocampal driven changes are largely inhibitory. The lHipp more dominantly inhibits both the left and right dlPFC (change from .12 to -.03Hz and n.s. to -.15Hz, respectively), as well as the ipsilateral Thal (-.13Hz from n.s.). Bilaterally, the Hipp inhibits the left SOG (-.12Hz reduction on both sides), though the contralateral connection was a shift from excitation to inhibition. The rHipp also inhibits the right MTG (-.11Hz from n.s.). Sensory areas again show cross talk due to psilocybin. The left SOG inhibits the right MTG (from n.s. to -.08Hz), while the right MTG inhibits the right SOG (from n.s. to -.08Hz). Both sensory regions bilaterally inhibit the Thal in most of the possible connections. Interestingly, there are no sensory driven effects towards the Hipp or the frontal regions. 
+
+The connections which correlate with symptoms are explored through a constrained DCM inclusive of behavioral co-variates. Notably, inputs into the Thal vary the most with behavioral symptoms, but are dependent on the efferent region. From sensory regions, inhibition of the Thal is inversely correlated to symptoms, as indicated by ipsilateral MTG and SOG afferent connections ($\beta = -.08$ for both connections). Whereas inhibition from the lHipp instead strongly correlates with symptoms ($\beta = .20$). In addition, thalamic excitation inversely correlates with symptoms ($\beta = -.11$). Right thalamic excitation of the left dlPFC also correlates with symptoms ($\beta = .09$). left SOG- right MTG inhibition also is inversely related to symptoms ($\beta = -.08$). 
+
+\subsection{Psilocybin changes during meditation}
+
+\begin{figure}[h]
+    \centering
+    \hspace*{-0.25in}  
+    \includegraphics[width=1.2\textwidth, height=1\textheight, keepaspectratio]{fig/combined_PEB_analysis_meditation.png}
+    \label{fig:m4}
+\end{figure}
+
+Meditation conceptually contrasts the movie condition, as participants were told to focus inwards. Here, similar trends are seen compared to the resting condition. Top down effects onto the right side of the brain are opposite, with left dlPFC inhibiting, and right dlPFC inhibiting the Hipp, MTG and SOG. Both dlPFC cross-excite eachother. The lHipp continues to widely inhibit each region of interest, and the rHipp excites all regions except for the Thal. left SOG output to the left MTG becomes excitatory. The right MTG inhibits both SOG. The Thal also shows its first shift towards excitation of the lHipp. Interestingly, the thalamic outputs correlate with behaviors, specifically with excitation of the lHipp, and inhibition of the right MTG. Also, the increase in cross-excitation from the right to left dlPFC is inversely related to symptoms. 
+
+\section{Discussion}
+
+%reiterate results
+In this study, we uncover network connections specific to hallucinations with psilocybin through regions of study based on hallucinations within schizophrenia. When controlling for reported hallucinations, psilocybin-induced changes in connectivity parameters (which represent the causal influence of one region upon another) expose an asymmetrical and condition-dependent role of the Hipp. This is shown through a psilocybin-induced left hippocampal driven inhibition and a right hippocampal driven excitation towards sensory regions and prefrontal regions. This trend of connection changes was more poignant in conditions without external stimuli (rest and meditation). dlPFC driven laterality biases are also exposed towards toward sensory regions, but efferents to Hipp differ by stimuli type (audio and movie). Sensory driven differences are exposed through condition type, with expected sensory cortex following the stimuli type, yet bottom-up inhibitions during psilocybin administration inversely relate to hallucination severity. Instead, hippocampal outputs, top-down influences on sensory regions, or thalamic modulations may better drive hallucinations. 
+
+\subsection{The hippocampus as a disrupted hub}
+%intro
+%effect 1 - asymmetry of HC based on dlPFc inputs, and overall outputs
+Hippocampal atrophy is present in late stage and treatment resistant schizophrenia \citep{maller2012hippocampal}. In these cases, there is evidence for the abberant Hipp activation, as well as aberrant signals, interpreted as predictions, to the auditory cortex (through a deactivated parahippocampal gyrus) \citep{diederen_deactivation_2010, hoffman_time_2008, jardri2011cortical}. The auditory-hippocampal connection is thought to take in perceptual information from association cortices, moving this information to the Hipp, and then passing this information back to the point of original perception. In addition, disrupted hippocampal oscillations, related to (abnormal) memory recollection processes, are thought to result in functional network disruptions in AH SZ patients \citep{hare2018disrupted}. During rest and meditation, the rHipp was equally inhibited and excited by the contra-lateral and ipsilateral dlPFC. This trend flipped during music condition. While the left dlPFC inhibition of the rHipp was inversely correlated to symptoms at rest, cross self-excitation of the rHipp correlated with symptoms during music. Coupled with the fact that left hippocampal inputs were rarely affected by psilocybin at all, it seems that the asymmetry follows the memory driven effect. 
+
+%effect 4- overall effect of HC onto dlPFC
+In \citet{uscatescu_effective_2021}, both positive and disorganized symptom severity in Sz was correlated to several Hipp outputs into DMN and SN regions. Positive symptoms correlated with a weakened lHipp-left inferior parietal sulcus connection \citep{uscatescu_effective_2021}.  Here, lHipp-dlPFC increases in inhibition (for each condition save music) were present, but were not predicted by hallucinations. lHipp outputs (to sensory cortices and Thal) show lateral-specific correlations with hallucinations, emphasizing that the lHipp may drive hallucination severity between both psilocybin and schizophrenia. However, it is unclear how hippocampal outputs to higher level networks may influence hallucinations. Disorganized symptoms had positive correlations of lHipp-DMN regions - such as shift towards excitation to the left inferior parietal sulcus, and weakened excitation to posterior cingulate cortex; whereas correlations were negative to weakened inhibition to dorsal anterior cingulate cortex, part of SN \citep{uscatescu_effective_2021}. Previous analyses of this dataset show anterior lHipp - inferior parietal cortex changes contrasting between rest and movie, though no lHipp posterior cingulate cortex changes \citep{stoliker_psychedelics_2025}. 
+
+In both rest and meditation conditions, the lHipp contralaterally inhibited the rDLPFC, whle the rHipp ipsilaterally excited the rDLPFC. During music, no Hipp-DLPFC connections were changed due to psilocybin, whereas lHipp-DLPFC connections were instead inhibitory during movie. This connection shows condition-dependent directionality, similar to reduced EC the lHipp-lDLPFC connection in first episode patients\citep{cui_anterior_2015}. In the transition period before a hallucination prone period, SAL, DMN and CEN networks are unstable \citep{lefebvre_network_2016}. This allows Hipp input into the SAL network during the onset of hallucinations, decreasing DMN activity until CEN retakes \citep{lefebvre_network_2016}. In psilocybin, there are stimuli-dependent interactions of DMN activity, with left hippocampal efferents driving excitation of DMN nodes \citep{stoliker_psychedelics_2025}. However, further analyses must be conducted with this psilocybin to capture similar nonstationary changes in resting state time series during psilocybin. 
+
+%effect 2 - input of sensory info
+The rHipp may also show disrupted interpretation of auditory information. In both the music and guided meditation conditions, there is increased contralateral inhibition from the left MTG due to psilocybin. There is no equivalent connection seen for the SOG inputs into the Hipp during the movie condition, with or without psilocybin. In AVH patients, there is reduced connectivity from the auditory cortex to the Hipp \citep{li_abnormal_2017}. 
+
+%effect - hippocampus cross
+In SZ patients, rHipp-LHipp cross excitation is weakened, an effect that inversely correlates with positive symptoms \citep{uscatescu_effective_2021}. Interestingly, the also weakened lHipp-rHipp cross-excitation, inversely correlates with negative symptoms \citep{uscatescu_effective_2021}. Here, the only change in hippocampal cross-connectivity is during music - an increased excitation lHipp-rHipp, which correlated with hallucinations. Hence, directionality of the connection, as well as whether it is inhibition or excitation, may play an important role in determining its contribution to symptom type. In sum, activation patterns and hallucination correlations emphasize the importance of an active lHipp, and inhibited rHipp.    
+\subsection{Sensory regions}
+
+%effect 1 - frontal inhibition from MTG
+Evidence for bilteral MTG driven ipsilateral excitation and contralateral inhibition of the dlPFC is shown through each condition at baseline. At rest and during meditation, the MTG shows near equivalent contralateral inhibition and ipsilateral excitation of the right dlPFC, increasing the strength of this trend. It is only during the movie condition, where this trend is strongest at baseline, that there is no changes in these connections. These psilocybin induced changes indicate a shift towards connections reminiscent of those during on-going external stimuli, a wider finding similarly reported in \citep{stoliker_neural_2025}. Interestingly, on the music task, the contralateral inhibition again arose due to psilocybin, but right ipsilateral MTG-dlPFC excitation was weakened. On the rMTG-rdlPFC ipsilateral connection, its excitation during rest correlates with symptoms, but its rMTG-ldlPFC inhibition during music is inversely correlated from symptoms. 
+
+%effect 2- cortex cross talk / multi-modal
+There is significant cross-sensory region changes in connectivity as well. Overall MTG-SOG inhibition follows after psilocybin administration. It is only in the music condition that the baseline excitation is present, and not fully reduced. The reverse connection, SOG-MTG, shows similar ipsilateral excitation and contralateral inhibition to the lMTG along rest and meditation conditions. Towards the rMTG, lSOG shows excitation during music, and an inhibition during movie viewing that is inversely correlated with symptoms. Seemingly, condition-respective cortex connections that may indicate a modulation of external stimuli do not correspond to hallucinations. Despite this, auditory cortices show inactivation during AVH experiences \citep{fuentes-claramonte2021auditory}.  Disruptions in dynamic FC are evident in first episode SZ with AVH amongst a wide range of occipital-temporal connections, shown with seeds in Heschl's gyrus, and shown between the MTG and occipital pole \citep{xue_altered_2022, zaykova_lateralized_2025}. Given the nature of resting state data, more in-depth tracking of stimuli will be needed to assess the temporal role of sensory areas.
+
+\subsection{Thalamus}
+
+%effect 3- sensory into Thal
+%effect 3 - Hipp inhibition of the Thal (maybe take out)
+In Sz patients, there is hyperconnection between Thal and visual / auditory networks \citep{damaraju_dynamic_2014}.
+As a result of psilocybin, sensory cortex connections into the Thal are entirely inhibitory, with more connections showing inhibition for the stimuli driven conditions (movie and music). Among the stimuli driven conditions, this increased inhibition often inversely correlates with hallucinations, with exception of rSOG-lThal during music. Given the only exception to this was the rSOG-lMTG connection during music, it may be that occipital lobe input without external stimuli plays a role. A previous spDCM model of AVH in SZ studied used similar ROIs, finding hallucination proneness affects the excitatory Thal-MTG connection \citep{li_abnormal_2017}. Here, thalamic inhibition towards the MTG was inversely correlated with hallucinations, hinting that this connection may be show a compensatory change. Hippocampal activity may also dampen the overall effectiveness of the thalamus. Across conditions, the Hipp begins to inhibit the Thal during psilocybin, so far as a flip towards inhibition in the music condition. SZ patients show overall had higher switching rates in subcortical networks and thalamic nodes, indicating instability in activity necessary for integration \citep{li_multilayer_2025}. 
+
+%effect 1- resting state largely inhibitory, except some frontal inputs
+%effect 2 - Thal during meditation to hipp and MTG is interesting and memory driven aligned
+During resting and meditation baseline, thalamic outputs to all other regions are negative. Most of these connections are not significant in music and movie baselines, but some inhibitory SOG afferents become negative after psilocybin administration. All conditions share the pattern of lThal-rDLPFC inhibition following psilocybin, though only in rest is this connection important to hallucinations. During movie, the rThal-lDLPFC excitation is unique, and contributes to hallucinations. dlPFC and thalamic connections are necessary for cognitive control, for which pfc neurons encode the relevant state \citep{denicola_differential_2020}. Uniquely, meditation excites the lHipp via the rThal, an effect correlating with hallucinations and contrasting the baseline inhibition present during the music and rest condition. This may indicate the Thal activation of the lHipp arises during either introspection or engagement with the guided meditation instructions. Meditation and rest share a rThal-lMTG inhibition after psilocybin administration, but only during meditation is this connection significantly correlated with hallucinations.  Previously reported in this dataset, psilocybin broadly suppressed the global functional connectivity of sensory regions, while enhancing that of associative areas \citep{stoliker_psychedelics_2025}. Future studies must incorporate whether hallucination differences will diverge more in areas responsible for integration of sensory info. 
+
+%effect 3- sensory to thalamic inputs, and inverse
+Regarding sensory cortices, rest and meditation conditions showed increased Thal-MTG inhibition, whereas movie and music showed increase Thal-SOG inhibition. Thalamic outputs towards the sensory regions showed few impacts on hallucinations; only during rest was rThal-rMTG inhibition correlated with hallucinations. There is mixed evidence for both interactions with both sensory cortices, such as MTG and Thal hyperconnectivity correlating with positive symptoms \citep{ferri_resting-state_2018}, LSD-induced rThal and the right fusiform gyrus lobe hyperconnectivity correlating with visual hallucination symptoms \citep{noauthor_increased_nodate}, and thalamic and occcipital dFC disruption in first episode SZ with AVH \citep{xue_altered_2022}. Despite the etiological differences in psychedelic and Sz hallucinations, we show more in-depth differences through usage of passive null, audio and visual stimuli. Future studies will need scales that better separate the specifics of each hallucination type. 
+
+\subsection{dlPFC modulation and effects on triple disconnection}
+
+% We assessed the dlPFC as it serves as a node important for the CEN, and the modulation of potential switches. Functional connectivity between the DMN and CEN is increased in psychosis and more so with hallucination severity \citep{manoliu_aberrant_2014} and positive symptoms generally \citep{lee_resting-state_2018}. In spDCM, CEN excitation of the DMN network is associated with positive symptoms, while SN influence to the CEN and DMN is decreased in Sz patients overall \citep{xi_triple_2021}. In AVH patients, there is less frequency of a strong DMN and language network anti-correlation \citep{geng_abnormal_2020}. The SN is thought to mediate the attribution between internal and external events \citep{alderson-day_auditory_2016}; its connectivity properties explain the dimensions of symptoms in schizophrenia \citep{lee_resting-state_2018}. Particularly, SAL-CEN connectivity predict disorganization \citep{lee_resting-state_2018}, while SAL centered cross-network interactions correlate with both disorganization and hallucinatory symptoms \citep{supekar_dysregulated_2019}. In psilocybin, increased DMN and task-positive networks is thought to be relate to the phenomenology regarding separations between internal and external states \citep{carhart-harris_functional_2013}. 
+
+%effect 1- meditation / rest look the same, asymmetry of ouputs in regards to top-down on Hipp and occipital
+DLPFC outputs show a near identical pattern across meditation and rest groups, though only in rest does the inhibition of the rHipp inversely correlate with hallucinations. Across these two conditions, DLPFC outputs show an asymmetry to in their outputs to Hipp, SOG, and MTG, with the lDLPFC consistently showing inhibition, and rDLPFC excitation. This highlights the asymmetry of the DLPFC. Notably, the right dlPFC dysfunction may be state dependent to Sz, as its FC restores after medication \citep{sarpal_antipsychotic_2015}. However, this top-down pattern is not seen during movie/music, where there is instead similar top-down excitation from both sides. In a meta-analysis, the most largely involved network during AH, the auditory network, is thought to be turned on or off by SN \citep{mo2025network}. The range of complex top-down connections indicates there is a complex and stimuli dependent role of EN network modulation of auditory networks, though there is no effect on hallucinations shown. Mindfulness meditation to reduce auditory hallucinations (and dlPFC and primary auditory cortex interactions) \citep{bauer_real-time_2025}. Unfortunately, the order of experiment here did not allow the distinguishing of hallucinations between conditions. 
+
+%effect 2- self connections and connections onto Hipp - differences between movie and music
+In the movie condition, DLPFC self and contralateral connectivity is altered, whereas top-down influence on the Hipp is more prevalent in the music condition. In first-episode patients, there is a strengthened excitation of lDLPFC-lHipp compared to controls, a connection that is unchanged by psilocybin across conditions here \citep{cui_anterior_2015}. 
+
+\subsection{Limitations}
+%difficult to connect to dysconnection / causality is limited by the tractability and interpretibility even within dcm
+
+Thalamic-prefrontal dysconnections may be involved in cognitive functions such as working memory and decision-making processes. It is unclear if the prefrontal inhibition here is modulated by working memory processes, or purely related to hallucinatory processes. Thalamic contributions are also for perceptual integration, so simple external stimuli may not be enough to elicit thalamic influence. Most patients with auditory hallucinations also have visual. Working memory deficits may be interacting with our effects here, particularly working memory is predictive of AVH \citep{jenkins_working_2018}. Reduced FC in temporal and parahippocampal networks is predictive of cognitive impairments\citep{zhao_cross-cohort_2024}. Hippocampal-prefrontal connections are also frequently tied to general memory performance, and the DLPFC specifically is involved in working memory processes. Also, hippocampal dysfunction has been shown to tie into reward related processes with those at ultra high risk for psychosis, indicating basal-ganglia-midbrain networks may be relevant for differences seen in schizophrenia but not here \citep{winton-brown altered 2017}. 
+
+The Thal have been thought to be involved in perceptual information processing, but its unclear if the lack of effects here is due to the lack of motor related tasks or alterations \citep{walther_psychomotor_2015}. Motor-related abnormalities are common in schizophrenia, and themselves involve  prefrontal-cerebellar interactions  \citep{walther2017} and weakened thalamo-frontal connectivity \citep{cheng_voxel-based_2015}. Indeed, PFC-thalamic hypo-connectivity correlated with thalamo-motor cortex hyper-connectivity in both early stage and chronic psychosis \citep{woodward_mapping_2016}. In resting state data, abnormal thalamo-motor cortical connectivity is more correlated through negative symptoms in schizophrenia \citep{martino_abnormal_2018}. However, this correlation may be dopamine dependent, given that positive symptom association with striatal connectivity is shown in unmedicated patients \citep{horga_dopamine-related_2016}. AVHs in schizophrenia show both differing activations in sensorimotor cortices and memory systems \citep{jardri2011cortical}. The triple network theory has also been integrated into the striatal dopamine theories, in which abberant salience aligns with the salience network's control of the DMN and CEN \citep{menon_integrative_2023}. 
+
+%normal DCM & fmri hallucinations
+DCM is limited by tractability and interpretability to a few regions of interest. The changes in connectivity here are likely modulated through intermediary regions not included in this models' ROIs. Notably, the relevant cortices are primarily associative in schizophrenia \cite{leptourgos_hallucinations_2020 anterior insula, pcc, acc, mfg findings}, but it is not yet clear whether that is due to compensatory factors along the progression of the disease or the complexity of the hallucination. For example, hippocampal-thalamic, but not hippocampal-prefrontal, FC is abnormal in high schizotypy \citep{p_high_2021}. The "causal" disconnect responsible for hallucinations is difficult to probe in schizophrenia. Due to the large variety of network disruption, and computational complexity of effective connectivity, there are few studies assessing causal disruptions within a patient population \citep{curcic2017interaction}. 
+%The majority of studies in the literature are FC based, making it difficult to track mechanistic connectivity differences along the stages of psychosis, as well as along the heterogeneity of symptoms. 
+
+%hallucination capture 
+There is difficulty detecting event-related hallucinations in symptom-capture fMRI, as response networks may be driven by motor requirements \citep{gill_real-time_2022}. In a large scale study of hallucinations in schizophrenia, dynamic FC did not capture the state metric of hallucinations (those captured on day of scan), and instead was better captured by the trait variable of hallucination proneness \citep{weber_dynamic_2020}. Further scales should better capture the trait variable of hallucinations pre-psilocybin administration to assess distinguish between hallucinations themselves from tendency to hallucinations. 
+
+%course graining
+Regions of interest here are course grained, despite pathway specific and plane specific differences. The dlPFC shows longitudinal based differences in anterior insula FC correlations to PANSS score \citep{chechko_differential_2018}. Temporal lobe functional connections in AVH also show longitudinal differences, as well as hemispheric asymmetries differing from healthy controls \citep{zaykova_lateralized_2025}. The Hipp also shows anterior posterior separations in Sz \citep{blessing_anterior_2020} and psilocybin \citep{stoliker_neural_2025}. Particularly, further analyses into the Hipp could help better distinguish between audio and visual (or mixed) hallucinations \citep{cachia_deviations_2020}. Also, differences in ALFF of Hipp can help distinguish towards modality \citep{hare_modality-dependent_2017}. 
+
+\section{Supplementary}
 
 
 \bibliographystyle{unsrtnat}
 \bibliography{references}  %%% Uncomment this line and comment out the ``thebibliography'' section below to use the external .bib file (using bibtex) .
-
-
-%%% Uncomment this section and comment out the \bibliography{references} line above to use inline references.
-% \begin{thebibliography}{1}
-
-% 	\bibitem{kour2014real}
-% 	George Kour and Raid Saabne.
-% 	\newblock Real-time segmentation of on-line handwritten arabic script.
-% 	\newblock In {\em Frontiers in Handwriting Recognition (ICFHR), 2014 14th
-% 			International Conference on}, pages 417--422. IEEE, 2014.
-
-% 	\bibitem{kour2014fast}
-% 	George Kour and Raid Saabne.
-% 	\newblock Fast classification of handwritten on-line arabic characters.
-% 	\newblock In {\em Soft Computing and Pattern Recognition (SoCPaR), 2014 6th
-% 			International Conference of}, pages 312--318. IEEE, 2014.
-
-% 	\bibitem{keshet2016prediction}
-% 	Keshet, Renato, Alina Maor, and George Kour.
-% 	\newblock Prediction-Based, Prioritized Market-Share Insight Extraction.
-% 	\newblock In {\em Advanced Data Mining and Applications (ADMA), 2016 12th International 
-%                       Conference of}, pages 81--94,2016.
-
-% \end{thebibliography}
 
 
 \end{document}
