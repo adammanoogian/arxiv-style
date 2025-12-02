@@ -2,6 +2,10 @@
 
 \usepackage{arxiv}
 
+\usepackage{amsmath}
+\usepackage{bm}           % bold math symbols
+\usepackage{nomencl}
+
 \usepackage[utf8]{inputenc} % allow utf-8 input
 \usepackage[T1]{fontenc}    % use 8-bit T1 fonts
 \usepackage{hyperref}       % hyperlinks
@@ -16,64 +20,41 @@
 \usepackage{natbib}
 \usepackage{doi}
 
-\title{A template for the \emph{arxiv} style}
+
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\title{Physics of Perception}
 
 % Here you can change the date presented in the paper title
 %\date{September 9, 1985}
 % Or remove it
 %\date{}
 
-\newif\ifuniqueAffiliation
-% Comment to use multiple affiliations variant of author block 
-\uniqueAffiliationtrue
-
-\ifuniqueAffiliation % Standard variant of author block
-\author{ \href{https://orcid.org/0000-0000-0000-0000}{\includegraphics[scale=0.06]{orcid.pdf}\hspace{1mm}David S.~Hippocampus}\thanks{Use footnote for providing further
-		information about author (webpage, alternative
-		address)---\emph{not} for acknowledging funding agencies.} \\
-	Department of Computer Science\\
-	Cranberry-Lemon University\\
-	Pittsburgh, PA 15213 \\
-	\texttt{hippo@cs.cranberry-lemon.edu} \\
-	%% examples of more authors
-	\And
-	\href{https://orcid.org/0000-0000-0000-0000}{\includegraphics[scale=0.06]{orcid.pdf}\hspace{1mm}Elias D.~Striatum} \\
-	Department of Electrical Engineering\\
-	Mount-Sheikh University\\
-	Santa Narimana, Levand \\
-	\texttt{stariate@ee.mount-sheikh.edu} \\
-	%% \AND
-	%% Coauthor \\
-	%% Affiliation \\
-	%% Address \\
-	%% \texttt{email} \\
-	%% \And
-	%% Coauthor \\
-	%% Affiliation \\
-	%% Address \\
-	%% \texttt{email} \\
-	%% \And
-	%% Coauthor \\
-	%% Affiliation \\
-	%% Address \\
-	%% \texttt{email} \\
-}
-\else
 % Multiple affiliations variant of author block
 \usepackage{authblk}
 \renewcommand\Authfont{\bfseries}
 \setlength{\affilsep}{0em}
 % box is needed for correct spacing with authblk
 \newbox{\orcid}\sbox{\orcid}{\includegraphics[scale=0.06]{orcid.pdf}} 
+\author[1,2,3]{%
+	\href{https://orcid.org/0009-0002-8002-3191}{\usebox{\orcid}\hspace{1mm}Adam Manoogian\thanks{\texttt{adam.manoogian@monash.edu}}}%
+}
+\author[4]{%
+	\href{https://orcid.org/0000-0002-2988-3121}{\usebox{\orcid}\hspace{1mm}Kiley Seymour\thanks{\texttt{kiley.seymour@uts.edu}}}%
+}
 \author[1]{%
-	\href{https://orcid.org/0000-0000-0000-0000}{\usebox{\orcid}\hspace{1mm}David S.~Hippocampus\thanks{\texttt{hippo@cs.cranberry-lemon.edu}}}%
+	\href{https://orcid.org/0000-0003-3906-3060}{\usebox{\orcid}\hspace{1mm}Jakob  Hohwy\thanks{\texttt{jakob.hohwy@monash.edu}}}%
 }
-\author[1,2]{%
-	\href{https://orcid.org/0000-0000-0000-0000}{\usebox{\orcid}\hspace{1mm}Elias D.~Striatum\thanks{\texttt{stariate@ee.mount-sheikh.edu}}}%
+\author[2,3]{%
+	\href{https://orcid.org/0000-0002-0779-9439}{\usebox{\orcid}\hspace{1mm}Adeel  Razi\thanks{\texttt{adeel.razi@monash.edu}}}%
 }
-\affil[1]{Department of Computer Science, Cranberry-Lemon University, Pittsburgh, PA 15213}
-\affil[2]{Department of Electrical Engineering, Mount-Sheikh University, Santa Narimana, Levand}
-\fi
+
+\affil[1]{Monash Centre for Consciousness and Contemplative Studies, Monash University, Melbourne, Australia}
+\affil[2]{Monash Biomedical Imaging, Monash University, Clayton, VIC, Australia}
+\affil[3]{Turner Institute for Brain and Mental Health, Monash University, Clayton, VIC, Australia}
+\affil[4]{University of Technology Sydney}
 
 % Uncomment to override  the `A preprint' in the header
 %\renewcommand{\headeright}{Technical Report}
@@ -86,7 +67,7 @@
 \hypersetup{
 pdftitle={A template for the arxiv style},
 pdfsubject={q-bio.NC, q-bio.QM},
-pdfauthor={David S.~Hippocampus, Elias D.~Striatum},
+pdfauthor={Adam~Manoogian},
 pdfkeywords={First keyword, Second keyword, More},
 }
 
@@ -94,121 +75,927 @@ pdfkeywords={First keyword, Second keyword, More},
 \maketitle
 
 \begin{abstract}
-	\lipsum[1]
+
+Perceptual biases along the schizotypy spectrum affect causal inference during physics-altered events, yet the
+mechanisms underlying these differences remain unclear. This study investigated how schizotypal traits relate to
+intuitive physics reasoning by examining susceptibility to stimuli with artificial physics through subsequent predictions. Online participants predicted the final position of a target ball following collision, after which the target became occluded. Physics were systematically violated through angular egress deviations (±15°), spatial overlaps (0.75-1.25 contact ratios), temporal asynchronies (1-5 frame delays), and size-mass mismatches. Participants completed the Cardiff Anomalous Perceptual Experiences Scale (CAPS), Peters Delusion Inventory (PDI), and Schizotypal Personality Questionnaire (SPQ) to assess individual differences in psychotic-like experiences. Results revealed systematic biases toward physics-violating endpoints at large angular deviations (mean errors of -2 to -6 units), suggesting reliance on perceptual heuristics rather than mental simulation. Mouse tracking metrics identified two distinct decision styles: "Trackers" exhibited fast, ballistic responses but higher prediction error, while "Waiters" showed deliberative movements with greater accuracy. Higher schizotypy scores (CAPS, PDI, SPQ) predicted slower movement velocities and 18-35 but did not significantly impair prediction accuracy. These findings suggest that schizotypal traits primarily affect motor execution and decision confidence rather than the underlying intuitive physics reasoning. The results support dual-process models of causal perception and highlight the value of mouse tracking for dissecting cognitive phenotypes in individual differences research.
+
 \end{abstract}
 
-
 % keywords can be removed
-\keywords{First keyword \and Second keyword \and More}
-
+\keywords{schizotypy \and physics \and causality }
 
 \section{Introduction}
-\lipsum[2]
-\lipsum[3]
+
+%introduce perecptual causality
+Predictive coding descriptions of schizophrenia (Sz) describe error in terms of a hierarchy, with problematic priors resulting in aberrant top-down or bottom-up predictions. Yet there is not a clear cut description trend of which priors lead to problematic inference \citep{petrovic_resolving_2023}. In addition, it is difficult to even describe 'where' in the hierarchy different types of perception (and action) should lie \citep{goodwin_predictive_2025}. Some evidence of manipulation of certain beliefs have helped elucidate difference \citep{schmack_delusions_2013}. 
+
+%introduce michotte reactions
+
+%introduce the different types of modulations we can make, how this can move up/down the perceptual hierarchy
+
+To do so, we draw inspiration for a perception task using principles of object tracking and state estimation. It involves tracking a ball and predicting the endpoint of its trajectory after a possible collision with another ball. Like previous versions of the task, each trial has the potential of an artificial condition manipulating the "true" trajectory of two balls. Artificial egress can affect the angle of the second balls angular velocity after a collision. In another condition, the intuitive association that  heavier things are bigger is challenged as mass and size are disassociated, causing visible changes to their physics after collisions. Several conditions alter the perceptual difficulty of the task, but not the movement trajectory, such as the the overlap allowed between balls before collision, and the temporal delay that follows post-collision. 
 
 
-\section{Headings: first level}
-\label{sec:headings}
+%also want to know how "learning / integration over time affects these hierarchical beliefs differently" 
 
-\lipsum[4] See Section \ref{sec:headings}.
 
-\subsection{Headings: second level}
-\lipsum[5]
+
+% Movement trajectories track unfolding of stimulus representations - \citep{koenig-robert_movement_2024}
+% Choice and history effects in causality perception \citep{streiling_choice-_2024}
+% Improving causality perception within schizophrenia spectrum disorders with \citep{schulke_improving_2023}. 
+
+% Sensory weighting along the schizotypy spectrum has been tested the discrete outcome version of this task \citep{marsicano_atypical_2025}. 
+
+% visual detection and motion discrimination - \citep{tarasi 2025} - perceptual history is task dependent. 
+
+
+
+
+%introduce bayesian modelling of physics
+
+Probabilistic simulation models assume that humans can use a mental model about how systems interact to simulate possible future states \citep{hohwy_predictive_2013}. Noisy Newtonian models utilize a structure in accordance to physical constraints to assess the influence of noise on individual perception \citep{kubricht_intuitive_2017}. Previous models have characterized noise in the generative physics process into dynamics and perceptual uncertainty \citep{smith_sources_2013}. Active inference models build on Bayesian inference models to incorporate beliefs (or preferences) about the likelihood of future trajectories \citep{parr_active_2022}. Since the model space of potential trajectories is often intractable, we constrain our model to two possible trajectories- the "physics-aligned" trajectory, which is what Newtonian physics would predict after object collisions, and the "physics-violating" trajectory, which is tied to the artificial physics that actually govern the movement of the visual stimuli. Models which compare or include these trajectory calculations will be compared.  
+
+%introduce sz eye movement problems and how it may link to tracking
+Unexplored is the possibility of counterfactual object trajectories simulated and weighted in perception \citep{gerstenberg_counterfactual_2024}. The tracking of multiple trajectories of moving objects naturally builds upon intuitions of counterfactual reasoning. In similar object collision tasks, previous models have probed what would have happened had a condition been absent \citep{gerstenberg_eye-tracking_2017}. Through a continuous endpoint prediction, we assess if there is an influence of counterfactual simulation that affects decision-making. To this end, we assess under what (if any) conditions bias predictions towards or away from alternative trajectories. Similar active inference models have been previously used to describe eye dynamics in schizophrenia \citep{adams_active_2015, adams_computational_2013}. 
+
+
+
+
+% -occlusion and perception
+% -occlusion and motor tracking
+
+
+Here, we probe the susceptibility to sensory stimuli that challenge intuitive assumptions found in real-world (Newtonian) physics. Physics-artificial balls are shown to collide before an occlusion, then participants predict the end position of one ball and their confidence of causality between the two. We model this prediction task through an active inference model structured to replicate 2-d physics, for which parameters reflect different forms of uncertainty in the underlying physics \citep{smith_sources_2013}. 
+
+\section{Methods}
+
+
+
+\subsection{Scales}
+
+
+% The Sensory Perception Quotient assesses basic sensory sensitivity along the five modalities \citep{tavassoli_sensory_2014}.
+
+The Schizotypal Personality Questionnaire- Brief Revised Updated (SPQ-BRU) uses 32 items which cover domains used in the diagnostic criteria for Schizotypal Personality Disorder \citep{davidson_schizotypal_2016}. It can be comprised into positive, negative and disorganized ordinate factors, as well as 7 subordinate factors reflecting schizotypal personality traits. Items are rated on a 5-point Likert scale from "strongly disagree" to "strongly agree," with higher scores indicating greater schizotypy.
+
+The Peters Delusions Inventory (PDI-21) consists of 21 items measuring delusional ideation in the general population \citep{peters_measuring_2004}. Each item assesses the presence of a specific delusional belief (yes/no), with endorsed items further rated on three dimensions: distress, preoccupation, and conviction (1-5 Likert scale). Based on the Present State Examination, the scale encompasses eight categories of delusions including persecution, reference, control, and thought interference. It is designed to assess the continuum between normal and delusional thinking, with the multidimensional ratings distinguishing psychosis-prone from psychotic individuals.
+
+The Cardiff Anomalous Perceptual Experiences Scale (CAPS) consists of 32 items assessing anomalous perceptual experiences across all sensory modalities, including auditory, visual, olfactory, gustatory, tactile, and temporal perception \citep{bell_cardiff_2006}. Each endorsed item is rated on three subscales measuring distress, intrusiveness, and frequency (1-5 Likert scale). It is used to measure perceptual anomalies across the psychosis continuum in both clinical and non-clinical populations.
+
+To identify distinct psychometric subtypes, we performed k-means clustering on standardized subscale scores. We first computed all 12 subscales (4 SPQ + 4 PDI + 4 CAPS) for each participant and standardized them to z-scores. We then applied k-means clustering with k ranging from 2 to 6 and selected the optimal number of clusters using the silhouette method. The k-means algorithm was run with 50 random initializations to ensure stable solutions. Cluster stability was assessed via bootstrapping (1000 iterations). 
+
+\subsection{Physics task}
+
+32 participants (with normal or corrected vision, right-handed) participated in the online experiment, drawn from a pool of University of Technology Sydney undergraduates who completed for course credit and via Prolific. The scales and experiment were adapted for usage via Psychopy [version number] and uploaded on Pavlovia. Ethics was approved under the University of Technology Sydney Psychology Low and Negligible Risks, approval number [G–60–2024-12-10].  Participants were given a short training instructions on the structure of the task, and asked to confirm understanding of the task. Participants were excluded if they: (1) failed to complete all experimental blocks, (2) showed response times <100ms or >30s on >20\% of trials, or (3) showed non-engagement patterns (e.g., clicking in same location repeatedly). Of the initial sample, 29 participants met all quality criteria (2,335 trials total).
+
+Participants completed a two-ball collision prediction task consisting of 74 trials. The trial began with a mouse click of the red ball, followed by a trajectory resulting in collision of the two balls. The ball starting position was block dependent. In the michotte configuration, ball A (the "launcher") originated from a fixed launch position at the bottom of the screen (0, 15 or 30 degrees off center) toward Ball B (the "target"), which remained stationary at the center of the screen. Following collision, Ball B moved toward a catch zone at the top of the screen while Ball A continued along its post-collision trajectory. This configuration replicated classic launching effect paradigms. On the other block, both balls started at the bottom position, and began with trajectories to collide near the center of screen. Both balls became occluded halfway between the collision point and the catch zone, requiring participants to mentally extrapolate the target ball's final position. Ball kinematics followed constant-velocity dynamics with realistic elastic collision mechanics incorporating friction and momentum transfer, but excluded acceleration, drag, and gravity to simplify the mental physics computation. Trials were randomized with velocities [1.3, 1.7, 2.3], representing [fps]. Participants used the mouse cursor to indicate their prediction of where Ball B would land along the horizontal catch zone. Reaction time and mouse cursor coordinates were recorded at 60Hz trajectories were recorded continuously throughout each trial. After submitting their prediction, participants responded to the question "Do you believe the red ball caused the movement of the blue ball?" on a 5-point Likert scale ranging from "Strongly Disagree" to "Strongly Agree." This assessed explicit causal perception under physics violations. The experiment employed a full factorial design manipulating five physics parameters across 74 trials:
+
+Control trials (12 total): Six trials with veridical Newtonian physics preceded the experiment, and six control trials concluded the session to assess baseline performance and learning effects. Importantly, these trials pre-collision occlusion trials (where occlusion occurred halfway between trial onset and collision). 
+
+Spatial overlap (10 trials): The degree of spatial contact at collision was varied across five levels (0.75, 0.9, 1.0, 1.1, 1.25), where 1.0 represents naturalistic edge-to-edge contact. Values below 1.0 created apparent "underlap" (balls separated at collision), while values above 1.0 produced visible interpenetration. This manipulation tested sensitivity to anomalous spatial contact between objects.
+
+Angular egress (14 trials): The post-collision trajectory angle of Ball B was artificially deviated from the physically accurate angle by -15°, -7.5°, -4.5°, 0°, +4.5°, +7.5°, or +15°. In naturalistic elastic collisions between equal-mass spheres, the angle between post-collision trajectories is constrained by conservation of momentum. Egress deviations violated this constraint, creating a discrepancy between the perceptually expected and
+physically correct endpoints. This manipulation assessed reliance on angle heuristics versus mental simulation.
+
+Temporal asynchrony (10 trials): The onset of Ball B's movement was delayed by 1-5 frames (16.7-83.3 ms at 60 Hz) following Ball A's contact, creating apparent violations of temporal contiguity in causal interactions. This tested whether participants required immediate temporal contingency for causal attribution.
+
+Size-mass decoupling (18 trials): Ball B's visual size (diameter: 0.71×, 1.0×, or 1.3× the base 0.125 units) was manipulated independently of its mass (0.6×, 1.0×, or 1.4× the base value) in a 3×3 factorial design. Post-collision trajectories reflected the true mass rather than the visible size, violating the natural size-mass correlation. This assessed whether participants inferred mass from visual size during collision prediction.
+
+Interaction conditions (16 trials): Eight trials combined overlap × egress manipulations, and eight combined temporal × egress manipulations to test non-additive effects.
+
+\subsection{Metrics}
+
+For each trial, two simulation trajectories were computed: one using the manipulated physics parameters (physics-violating, PV) and one using veridical Newtonian mechanics (physics-aligned, PA). The horizontal landing positions along the catch zone for these two simulations defined the PV and PA endpoints, respectively. Participant predictions were translated into to a signed directional error, normalized by the distance from the PA
+endpoint toward the PV endpoint. Error ranged from 0 (perfectly aligned with physics) to +1 (perfectly aligned with the violation), with larger values representing overshoot towards each endpoint, respectively. 
+
+The dynamics of both "physics-aligned" and "physics-violating" trajectories were simulated for each trial, given the starting positions of each ball. Velocity varied randomly on each trial, between x and y, resulting in trials with x-y frames and x-y ms. End-positions for the target ball of each trajectory are when each ball reaches the final y position. The x-position of each 
+
+
 \begin{equation}
-	\xi _{ij}(t)=P(x_{t}=i,x_{t+1}=j|y,v,w;\theta)= {\frac {\alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}{\sum _{i=1}^{N} \sum _{j=1}^{N} \alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}}
+\label{eq:prediction_error}
+\text{Directional prediction error} =
+\begin{cases}
+\displaystyle\frac{
+(x_{\text{pred}} - x_{\text{violating}})
+\cdot (x_{\text{aligned}} - x_{\text{violating}})}
+{|x_{\text{aligned}} - x_{\text{violating}}|} & 
+\text{if } x_{\text{aligned}} \neq x_{\text{violating}}  \\[0.8em]
+x_{\text{pred}} - x_{\text{violating}} & \text{if } x_{\text{aligned}} = x_{\text{violating}} 
+\end{cases}
 \end{equation}
 
-\subsubsection{Headings: third level}
-\lipsum[6]
 
-\paragraph{Paragraph}
-\lipsum[7]
+% 'Physics-deviation', $\varsigma$, characterizes the "difficulty" of artificial physics added, set to each conditions bounds. Higher egress, temporal differences and overlap are more obvious deviations from newtonian physics, and easier to spot. 
 
+To assess how physics violations affected prediction accuracy, we conducted mixed-effects linear regression models predicting absolute error from each manipulation dimension. Models included manipulation level as a fixed effect and participant as a random intercept to account for repeated measures. Models were fit using maximum likelihood estimation (Python statsmodels). We report regression coefficients ($\beta$), standard errors, and $p$-values. Statistical significance was evaluated at $\alpha$ = .05 with Bonferroni correction for multiple comparisons (5 manipulations: $\alpha_{\text{corrected}}$ = .01).
 
 
-\section{Examples of citations, figures, tables, references}
-\label{sec:others}
+Mouse trajectories were extracted from movement initiation to final click. For each trial, we computed: (1) trajectory curvature (area between actual and straight-line path), (2) maximum perpendicular deviation, (3) number of direction reversals, (4) initiation time, and (5) total movement duration. To characterize individual decision styles, we performed k-means clustering on standardized trial-averaged mouse metrics, identifying ``direct responders'' (straight, fast trajectories that "track" the objects movement) and ``deliberative responders'' (slower trajectories with more deliberation time). We then tested whether decision style was associated with psychometric profiles using logistic regression, and whether it predicted performance using mixed-effects models. 
 
-\subsection{Citations}
-Citations use \verb+natbib+. The documentation may be found at
-\begin{center}
-	\url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf}
-\end{center}
+\subsection{Simulation}
 
-Here is an example usage of the two main commands (\verb+citet+ and \verb+citep+): Some people thought a thing \citep{kour2014real, keshet2016prediction} but other people thought something else \citep{kour2014fast}. Many people have speculated that if we knew exactly why \citet{kour2014fast} thought this\dots
+The environment provides Cartesian observation coordinates of each object $[X_a, Y_a, X_b, Y_b]$. These objects are transformed into polar coordinates, giving $\theta$ as the angle in degrees $[-1, 1]$ and $r$, the radial distance $[0, \infty]$, from the origin point. The velocity components $dx$ and $dy$ are calculated per timestep $t$.
 
-\subsection{Figures}
-\lipsum[10]
-See Figure \ref{fig:fig1}. Here is how you add footnotes. \footnote{Sample of the first footnote.}
-\lipsum[11]
+% In your document:
 
-\begin{figure}
-	\centering
-	\fbox{\rule[-.5cm]{4cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
-	\caption{Sample figure caption.}
-	\label{fig:fig1}
-\end{figure}
+\subsection{Active Inference for Object Tracking}
 
-\subsection{Tables}
-See awesome Table~\ref{tab:table}.
+The environment provides Cartesian coordinates $[X_a, Y_a, X_b, Y_b]$ for each object, which are transformed into polar coordinates $(\theta, r)$ where $\theta \in [-1, 1]$ represents the angle and $r \in [0, \infty)$ represents the radial distance from origin. Cartesian velocities $[v_x, v_y]$ are similarly transformed to angular and radial velocities $(\omega, v_r)$:
 
-The documentation for \verb+booktabs+ (`Publication quality tables in LaTeX') is available from:
-\begin{center}
-	\url{https://www.ctan.org/pkg/booktabs}
-\end{center}
+\begin{align}
+\theta &= \arctan2(y, x) \cdot \frac{180}{\pi}, \quad r = \sqrt{dx^2 + dy^2} \\
+v_r &= \frac{dx \cdot v_x + dy \cdot v_y}{r}, \quad \omega = \frac{dx \cdot v_y - dy \cdot v_x}{r^2}
+\end{align}
 
+Agents maintain beliefs over angular position and velocity in generalized coordinates $u_\theta = [u_\theta^{(0)}, u_\theta^{(1)}] \in [-1, 1]^2$. The dynamics function models attractor dynamics with strength $\lambda$ pulling beliefs toward target $v$.
+
+\begin{equation}
+\text{polarTranslation}([x,y]) = (\theta, r) = \left[\arctan2(y,x) \cdot \frac{180}{\pi}, \sqrt{dx^2 + dy^2}\right]
+\label{eq:polar_transform}
+\end{equation}
+
+Cartesian velocity $[v_x, v_y]$ is also translated to angular and radial velocity $(\omega, v_r)$. Radial velocity is the component along the radial vector:
+\begin{equation}
+v_r = \frac{dx \cdot v_x + dy \cdot v_y}{r}
+\end{equation}
+
+Angular velocity is along the perpendicular component:
+\begin{equation}
+\omega = \frac{dx \cdot v_y - dy \cdot v_x}{r^2}
+\end{equation}
+
+The agents represent beliefs about angular position and angular velocity in generalized coordinates $u_\theta = [u_\theta^{(0)}, u_\theta^{(1)}]$, normalized to $[-1,1]$.
+
+The dynamics function designates the strength of attractor dynamics, or the pull of beliefs towards the target:
+\begin{equation}
+e_i = (v - x) \cdot \lambda
+\end{equation}
+
+\begin{algorithm}[h]
+\caption{Active Inference Update Step}
+\label{alg:active_inference}
+\begin{algorithmic}[1]
+\STATE \textbf{Input:} Current state $x = [x^{(0)}, x^{(1)}]$, target $v$, observation $o$, action $a_t$
+\STATE \textbf{Parameters:} Precisions $\Pi_{\eta_x}, \Pi_x, \Pi_{\eta_v}, \Pi_o$; learning rate $\text{lr}_a$; timestep $dt$
+\STATE 
+\STATE \textit{Step 1: Compute prior prediction error}
+\STATE $\epsilon_{\eta_x} \gets \Pi_{\eta_x} (x^{(0)} - \eta_x)$
+\STATE 
+\STATE \textit{Step 2: Dynamics prediction and error}
+\STATE $x' \gets f(x^{(0)}, v) = \lambda (v - x^{(0)})$ \hfill $\triangleright$ Predict next state
+\STATE $\epsilon_x \gets \Pi_x (x^{(1)} - x')$ \hfill $\triangleright$ Dynamics prediction error
+\STATE $\epsilon_{\eta_v} \gets \Pi_{\eta_v} (v - \eta_v)$ \hfill $\triangleright$ Cause prediction error
+\STATE 
+\STATE \textit{Step 3: Observation prediction}
+\STATE $o' \gets g(x)$ \hfill $\triangleright$ Forward generative model
+\STATE $\epsilon_o \gets \Pi_o (o - o')$ \hfill $\triangleright$ Observation prediction error
+\STATE 
+\STATE \textit{Step 4: Compute free energy gradients}
+\STATE $\frac{\partial F}{\partial x} \gets \frac{\partial \epsilon_o}{\partial x} + \epsilon_{\eta_x} + \frac{\partial \epsilon_x}{\partial x}$
+\STATE $\frac{\partial F}{\partial v} \gets \epsilon_{\eta_v} + \frac{\partial \epsilon_x}{\partial v}$
+\STATE 
+\STATE \textit{Step 5: Update beliefs via gradient descent on free energy}
+\STATE $\dot{x} \gets Dx - \frac{\partial F}{\partial x}$ \hfill $\triangleright$ $D$ is shift operator: $D[x^{(0)}, x^{(1)}] = [x^{(1)}, 0]$
+\STATE $\dot{v} \gets -\frac{\partial F}{\partial v}$
+\STATE $x \gets x + dt \cdot \dot{x}$
+\STATE $v \gets v + dt \cdot \dot{v}$
+\STATE 
+\STATE \textit{Step 6: Update action to minimize observation prediction error}
+\STATE $\dot{a} \gets -\Pi_o \epsilon_o$
+\STATE $a_{t+1} \gets a_t + dt \cdot \dot{a} \cdot \text{lr}_a$
+\STATE 
+\STATE \textbf{Return:} Updated state $x$, target $v$, action $a_{t+1}$
+\end{algorithmic}
+\end{algorithm}
+
+
+
+\subsection{model fitting}
+
+\paragraph{Latin Hypercube Sampling (LHS):}
+
+We used LHS to efficiently explore the parameter space with 5 samples per agent. 
+
+\paragraph{Parameter Ranges:}
+
+\begin{table}[H]
+\centering
+\caption{Parameter ranges by agent type (*Agent 2.4 uses conservative ranges)}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Parameter} & \textbf{Agent 2.1} & \textbf{Agent 2.2} & \textbf{Agent 2.4} \\
+\midrule
+$\lambda$ (action precision) & [0.01, 0.10] & [0.01, 0.10] & [0.01, 0.08]* \\
+$\pi_{\eta_v}$ (prior precision) & [0.1, 5.0] & [0.1, 5.0] & [5.0, 20.0]* \\
+$\varepsilon_v$ (learning rate) & [0.05, 0.20] & [0.05, 0.20] & [0.03, 0.10]* \\
+$\pi_{o,prop}$ (proprioceptive) & [1.0, 5.0] & [1.0, 5.0] & [5.0, 50.0]* \\
+$\pi_{o,vis}$ (visual) & --- & [0.5, 5.0] & [0.05, 1.0]* \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Trials:}
+\begin{itemize}
+    \item Agents 2.1, 2.2: Trials 0, 5 (baseline and moderate divergence)
+    \item Agent 2.4: Trials 13, 15 (high endpoint divergence: 14.86$^\circ$ on Trial 13)
+\end{itemize}
+
+\paragraph{Metrics:}
+
+\begin{enumerate}
+    \item \textbf{Endpoint Error (Normalized):} Euclidean distance between predicted and actual endpoint in normalized polar coordinates [0,1]
+    \item \textbf{Parameter Sensitivity:} Number of unique predictions across parameter sweep
+    \item \textbf{Free Energy:} Variational free energy ($F = F_{\text{observation}} + F_{\text{hidden state}}$)
+\end{enumerate}
+
+
+\subsection{Model Validation and Fitting}
+
+AIC, BIC, and goodness of fit metrics are currently being tested for model validation steps, including model comparison and model identifiability. 
+\paragraph{Akaike Information Criterion (AIC):}
+
+$$
+\text{AIC} = 2k - 2\ln(L)
+$$
+
+\paragraph{Bayesian Information Criterion (BIC):}
+
+$$
+\text{BIC} = k \ln(n) - 2\ln(L)
+$$
+
+where:yes
+\begin{itemize}
+    \item $k$ = number of free parameters (Agent 2.1: 4, Agents 2.2/2.4: 5)
+    \item $n$ = number of observations (400 parameter sets $\times$ 2 trials $\times$ 2 objects)
+    \item $L$ = likelihood (approximated from mean squared error)
+\end{itemize}
+
+\subsection{Parameter Recovery Validation}
+
+To validate Maximum Likelihood Estimation (MLE) procedures for subsequent human data fitting, parameter recovery analysis using a dual-criteria selection strategy that tests MLE performance in both optimal and ecologically valid (human-like) parameter regimes is ongoing.
+
+\paragraph{Human Performance Benchmark:}
+
+We established a human performance baseline using Task V5 data from the physics\_dev repository:
+\begin{itemize}
+    \item $N$ = 27 participants (29 total, 2 excluded for quality)
+    \item Trials = 1,809 valid trials (84 trials/participant $\times$ 27)
+    \item Mean absolute angular error: \textbf{24.4$^\circ$ $\pm$ 14.9$^\circ$}
+    \item Control trials (natural physics): 23.4$^\circ$ $\pm$ 14.4$^\circ$
+    \item Between-participant variability: 1.77$^\circ$ (high consistency)
+\end{itemize}
+
+\subsection{model space}
+
+
+
+
+List of free parameters: 
 
 \begin{table}
-	\caption{Sample table title}
+	\caption{Model Space}
 	\centering
-	\begin{tabular}{lll}
+	\begin{tabular}{lllllll}
 		\toprule
-		\multicolumn{2}{c}{Part}                   \\
+		% \multicolumn{2}{c}{Part}                   \\
 		\cmidrule(r){1-2}
-		Name     & Description     & Size ($\mu$m) \\
+		  Parameter       & Purpose & m1 & m2 & m3 & m4 \\
 		\midrule
-		Dendrite & Input terminal  & $\sim$100     \\
-		Axon     & Output terminal & $\sim$10      \\
-		Soma     & Cell body       & up to $10^6$  \\
+		  $\lambda$         &  attractor gain- controls convergence speed to targets    & static & x & x & x  \\
+		  $lr$            &  learning rate for gradient descent on beliefs            & x & x & x & x    \\
+		  $\pi_o$         &  observation precision                                    & x & x & x & x    \\
+        $\pi_x$         &  precision on dynamics                                    & x & x & x & x    \\
+		  $\pi_v$         &  observation over velocity                                & - & x & x & x    \\
+		  $\eta_x$        &  prior on hidden states                                   & x & x & x & x    \\
+		  $\eta_v$        &  prior on velocity                                        & - & x & x & x    \\
+		  $\pi_{\eta_x}$  &  prior precision on hidden states                         & x & x & x & x    \\
+		  $\pi_{\eta_v}$  &  velocity prior                                           & - & x & n=2 & x    \\
+          
+    
 		\bottomrule
 	\end{tabular}
 	\label{tab:table}
+
+    \vspace{0.5em} % small vertical space
+    {\footnotesize \textit{Note.} footnote}
+    %Models 2a–2c contrast different post-dose conditions. 
+
 \end{table}
 
-\subsection{Lists}
+
+
+\subsection{Agent Architectures}
+
+We evaluated three active inference agents differing in their generative models and learning mechanisms:
+
+\subsubsection{Agent 2.1: Single Learned Attractor}
+
+\paragraph{Generative Model:}
+
+Agent 2.1 employs a single-context generative model with endpoint attractors:
+
+\begin{align*}
+\text{State space: } & x = [x_\theta, \dot{x}_\theta]^T  \\
+\text{Hidden causes: } & v = \eta_v \in \mathbb{R} \text{ ( target endpoint)}
+\end{align*}
+
+\paragraph{Dynamics Equation:}
+
+$$
+f(x, v) = \lambda (v - x_\theta)
+$$
+
+where:
 \begin{itemize}
-	\item Lorem ipsum dolor sit amet
-	\item consectetur adipiscing elit.
-	\item Aliquam dignissim blandit est, in dictum tortor gravida eget. In ac rutrum magna.
+    \item $\lambda$: Attractor strength parameter (action precision)
+    \item $v$: endpoint 
+    \item $x_\theta$: Current angle position
 \end{itemize}
+
+\paragraph{Observation Model:}
+Proprioceptive observation (position):
+$$
+g_{\text{prop}}(x) = x_\theta
+$$
+
+\subsubsection{Agent 2.2: Velocity-Based Dynamics}
+
+\paragraph{Generative Model:}
+
+Agent 2.2 uses velocity as a hidden cause that directly controls dynamics:
+
+\begin{align*}
+\text{State space: } & x = [x_\theta, \dot{x}_\theta]^T  \\
+\text{Hidden causes: } & v = \text{velocity\_cause} 
+\end{align*}
+
+\paragraph{Dynamics Equation:}
+
+$$
+f(x, v) = \lambda \cdot v
+$$
+
+where:
+\begin{itemize}
+    \item $\lambda$: Action precision
+    \item $v$: Velocity cause (learned)
+\end{itemize}
+
+\paragraph{Observation Models:}
+
+In addition to the previous observation, this model now includes: 
+Visual (velocity):
+$$
+g_{\text{vis}}(x) = \dot{x}_\theta
+$$
+\subsubsection{Agent 2.4: Policy-Weighted Dual Attractors}
+
+\paragraph{Generative Model:}
+
+Agent 2.4 represents dual physics hypotheses (violating vs. aligned endpoints) with learnable policy weights:
+
+\begin{align*}
+\text{State space: } & x = [x_\theta, \dot{x}_\theta]^T  \\
+\text{Hidden causes: } & v = [v_{\text{violating}}, v_{\text{aligned}}]^T  \text{ (policy weights)} \\
+\text{Physics priors: } & \theta_{\text{violating}}, \theta_{\text{aligned}} \text{ (trial-specific endpoints)}
+\end{align*}
+
+\paragraph{Dynamics Equation:}
+
+$$
+f(x, v, \theta_{\text{viol}}, \theta_{\text{align}}) = v_0 \cdot \lambda(\theta_{\text{viol}} - x_\theta) + v_1 \cdot \lambda(\theta_{\text{align}} - x_\theta)
+$$
+
+where:
+\begin{itemize}
+    \item $v = [v_0, v_1]$: Policy weights for dual attractors (sum $\approx$ 1)
+    \item $\theta_{\text{viol}}, \theta_{\text{align}}$: Trial-specific physics endpoints (extracted from collision data)
+    \item $\lambda$: Attractor strength
+\end{itemize}
+
+% \subsubsection{}subsection{m1 - error affects position}
+
+% M1 is a single continuous unit active inference model where the target position is tracked. It is reactive, and updates beliefs when the target position moves. 
+
+
+% The prediction error of the observation, $\eta_{o,p} = o_p - g_p(u_x)$. The prediction error of the prior on the current state is in
+
+
+% \subsubsection{m2- position and velocity}
+
+% Model 2 is separately tracking both the position and velocity of the ball, and takes in observations of both (priorelli 2.2). Velocity predictions can be used to predict where the ball will go. 
+
+% Extends model one with $\eta_v$ and $\Pi_{\eta_v}$. 
+
+% \subsubsection{m3 - position / velocity multi context}
+
+% Model 3 takes in the current state, and $n$ possible velocities as observations. 
+
+% Extends model with $\eta_v = [x_1...x_n]$ and $\Pi_{\eta_v} = [x_1...x_n]$. 
+
+% A gain rule weights the input of each hidden cause into the final attractor. A parameter $k$ can be used to modulate the relative strength of each potential trajectory. 
+
+% \subsubsection{m4 - separate models for both position and velocity, linked through kinematics functions}
+
+% This model uses units connected through a transition function to express a trajectory. The internal unit takes in observations regarding its current position (the eye angle and velocity), and generates kinematic driven predictions through forward kinematics to the extrinsic unit (which encodes the target position). This gives a decomposition of intrinsic and extrinsic attractors. 
+
+\section{Results}
+
+\subsection{Analysis 1: Results on scales}
+
+
+\paragraph{Psychometric Scale Distributions}
+
+Before clustering, we examined the distributions of all three psychometric scales across our sample. Figure~\ref{fig:scale_distributions} shows that PDI, SPQ, and CAPS scores varied substantially across participants, with all scales showing positively skewed distributions characteristic of subclinical samples. The combined psychometric PC1 and hallucinatory quotient PC1 scores were approximately normally distributed, validating our PCA-based approach.
+
+% FIGURE: Scale Distributions
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/v5/distributions/01_scale_distributions_by_hq.png}
+\caption{Distributions of psychometric scale scores across all participants ($N$ = 28--29). Top row: PDI (delusion proneness), SPQ (schizotypy), and CAPS (anomalous perceptions) total scores. Bottom row: Combined psychometric PC1 and Hallucinatory Quotient PC1 derived from subscale-level PCA. All distributions show substantial inter-individual variability. Red dashed lines indicate means, orange dashed lines indicate medians.}
+\label{fig:scale_distributions}
+\end{figure}
+
+
+\paragraph{Optimal Cluster Solution}
+
+Silhouette analysis indicated an optimal two-cluster solution (Figure~\ref{fig:optimal_clusters}). Cluster 1 ($n$ = 16, 57\%) showed elevated scores across all psychometric subscales, while Cluster 2 ($n$ = 12, 43\%) showed lower scores (Figures~\ref{fig:cluster_radar}).
+
+Table~\ref{tab:cluster_profiles} presents the cluster profiles across key subscales. Cluster 1 showed substantially higher scores on all dimensions, with the largest differences in paranoid ideation (Cohen's $d$ = 2.95) and PDI endorsement (Cohen's $d$ = 1.54). This two-cluster structure was used in all subsequent analyses comparing psychometric groups. PCA visualization of the cluster structure is shown in Figure~\ref{fig:pca_clusters}.
+
+
+\begin{table}[H]
+\caption{Cluster Profiles on Psychometric Subscales}
+\label{tab:cluster_profiles}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Subscale} & \textbf{Cluster 1: High} & \textbf{Cluster 2: Low} \\
+ & \textbf{Psychometric ($n$=16)} & \textbf{Psychometric ($n$=12)} \\
+\midrule
+\multicolumn{3}{l}{\textit{SPQ}} \\
+\quad Total Score & $M$ = 74.12, $SD$ = 11.99 & $M$ = 36.42, $SD$ = 13.49 \\
+\addlinespace
+\multicolumn{3}{l}{\textit{PDI Subscales}} \\
+\quad Endorsement & $M$ = 5.31, $SD$ = 3.09 & $M$ = 1.50, $SD$ = 1.45 \\
+\quad Distress & $M$ = 14.94, $SD$ = 10.45 & $M$ = 3.50, $SD$ = 3.03 \\
+\quad Preoccupation & $M$ = 14.50, $SD$ = 11.58 & $M$ = 3.33, $SD$ = 4.16 \\
+\quad Conviction & $M$ = 17.31, $SD$ = 11.66 & $M$ = 4.42, $SD$ = 4.96 \\
+\addlinespace
+\multicolumn{3}{l}{\textit{CAPS Subscales}} \\
+\quad Endorsement & $M$ = 6.12, $SD$ = 5.68 & $M$ = 1.08, $SD$ = 1.44 \\
+\quad Distress & $M$ = 15.75, $SD$ = 16.56 & $M$ = 2.33, $SD$ = 3.11 \\
+\quad Frequency & $M$ = 17.62, $SD$ = 18.04 & $M$ = 2.17, $SD$ = 3.01 \\
+\quad Intrusiveness & $M$ = 14.62, $SD$ = 14.13 & $M$ = 1.83, $SD$ = 3.21 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{figures/v5/hallucinatory_quotient/cluster_radar_plot.png}
+\caption{Radar plot showing cluster profiles across 12 psychometric subscales. Cluster 1 (high psychometric) shows elevated scores across all subscales relative to Cluster 2 (low psychometric). All scores are standardized ($z$-scores).}
+\label{fig:cluster_radar}
+\end{figure}
+
+
+
+\subsection{Analysis 2: Main Effects of Physics Manipulations}
+\paragraph{Overall Performance}
+
+Across all 2,335 trials, participants showed small directional prediction errors ($M_{\text{error from physics}}$ = 0.035, $SD$ = 0.265 normalized units), indicating minimal systematic bias toward physics-aligned or physics-violating endpoints on average. Participants reported mid-range confidence ($M$ = 4.11, $SD$ = 1.22 on 0--100 scale) with moderate response times ($M$ = 1.92s, $SD$ = 0.93s).
+
+Performance metrics varied between control and manipulation conditions. Control trials with natural physics (60 trials) showed: directional error ($M$ = 0.031, $SD$ = 0.201), confidence ($M$ = 3.85, $SD$ = 1.34), and response time ($M$ = 2.01s, $SD$ = 0.85s). Manipulation trials (2,275 trials) showed: directional error ($M$ = 0.035, $SD$ = 0.267), confidence ($M$ = 4.12, $SD$ = 1.22), and response time ($M$ = 1.92s, $SD$ = 0.93s). Notably, manipulation trials showed slightly higher confidence despite greater error variability, and were responded to marginally faster than control trials.
+
+\paragraph{Condition Group Effects}
+
+Performance varied significantly across condition groups (Table~\ref{tab:condition_effects}). Detailed visualizations by Hallucinatory Quotient group are shown in Figures~\ref{fig:egress_hq}--\ref{fig:temporal_egress_hq}.
+
+\begin{table}[H]
+\caption{Performance Metrics by Condition Group and Hallucinatory Quotient Group}
+\label{tab:condition_effects}
+\small
+\begin{tabular}{l cc cc cc}
+\toprule
+\textbf{Condition} & \multicolumn{2}{c}{\textbf{Error from Physics}} & \multicolumn{2}{c}{\textbf{Confidence}} & \multicolumn{2}{c}{\textbf{RT (s)}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+ & High HQ & Low HQ & High HQ & Low HQ & High HQ & Low HQ \\
+\midrule
+Control Natural Physics & 0.000 & 0.014 & 4.32 & 4.01 & 1.92 & 1.94 \\
+Egress Only & 0.010 & 0.017 & 4.25 & 3.97 & 1.89 & 1.91 \\
+Overlap Only & 0.004 & 0.018 & 4.00 & 4.03 & 1.99 & 1.82 \\
+Temporal Only & 0.016 & 0.028 & 4.25 & 3.82 & 1.93 & 1.84 \\
+Temporal $\times$ Egress & 0.013 & 0.017 & 3.91 & 4.00 & 2.00 & 1.97 \\
+Overlap $\times$ Egress & 0.034 & 0.028 & 4.28 & 3.89 & 1.85 & 1.97 \\
+Size $\times$ Mass & 0.020 & 0.007 & 4.17 & 4.03 & 1.81 & 2.06 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Directional error showed minimal systematic bias across HQ groups (mean values near zero for both groups), with High HQ participants showing slightly smaller errors in most conditions. High HQ participants consistently reported higher confidence ratings ($M$ = 3.91--4.32) compared to Low HQ participants ($M$ = 3.82--4.03), particularly in control, egress, and temporal conditions. Response times were similar across HQ groups ($M$ = 1.81--2.06s).
+
+\paragraph{Performance by Subcondition}
+
+We examined performance across all manipulation subconditions, plotting directional error and confidence side by side for each. The following figures show performance broken down by Hallucinatory Quotient group (High HQ vs. Low HQ).
+
+\subparagraph{Egress Manipulations}
+
+% FIGURE: Egress - Error and Confidence
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/v5/by_subcondition/egress/error_raw/05_hq.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/v5/by_subcondition/egress/confidence/05_hq.png}
+\end{minipage}
+\caption{Egress manipulation: Directional error (left) and confidence (right) by Hallucinatory Quotient group. Egress angle showed complex nonlinear effects, with elevated errors at small $\pm$4.5\textdegree{} angles likely reflecting perceptual threshold effects.}
+\label{fig:egress_hq}
+\end{figure}
+
+\subparagraph{Overlap Manipulations}
+
+% FIGURE: Overlap - Error and Confidence
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/v5/by_subcondition/overlap/error_raw/05_hq.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/v5/by_subcondition/overlap/confidence/05_hq.png}
+\end{minipage}
+\caption{Overlap manipulation: Directional error (left) and confidence (right) by Hallucinatory Quotient group. Greater deviations from natural overlap (1.0) showed trends toward increased error and reduced confidence.}
+\label{fig:overlap_hq}
+\end{figure}
+
+\subparagraph{Temporal Manipulations}
+
+% FIGURE: Temporal - Error and Confidence
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/v5/by_subcondition/temporal/error_raw/05_hq.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/v5/by_subcondition/temporal/confidence/05_hq.png}
+\end{minipage}
+\caption{Temporal manipulation: Directional error (left) and confidence (right) by Hallucinatory Quotient group. Temporal delays showed weaker effects on spatial prediction accuracy compared to spatial manipulations.}
+\label{fig:temporal_hq}
+\end{figure}
+
+\subparagraph{Mass and Size Manipulations}
+
+% FIGURE: Mass+Size - Error and Confidence
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/v5/by_subcondition/mass+size/error_raw/05_hq.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/v5/by_subcondition/mass+size/confidence/05_hq.png}
+\end{minipage}
+\caption{Mass$\times$Size manipulation: Directional error (left) and confidence (right) by Hallucinatory Quotient group. This condition showed the largest errors and greatest variability.}
+\label{fig:mass_size_hq}
+\end{figure}
+
+\subparagraph{Combined Manipulations: Overlap × Egress}
+
+% FIGURE: Overlap+Egress - Error and Confidence
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/v5/by_subcondition/egress+overlap/error_raw/05_hq.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/v5/by_subcondition/egress+overlap/confidence/05_hq.png}
+\end{minipage}
+\caption{Overlap$\times$Egress manipulation: Directional error (left) and confidence (right) by Hallucinatory Quotient group. Combined manipulations showed complex interaction patterns with positive directional bias.}
+\label{fig:overlap_egress_hq}
+\end{figure}
+
+\subparagraph{Combined Manipulations: Temporal × Egress}
+
+% FIGURE: Temporal+Egress - Error and Confidence
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/v5/by_subcondition/egress+temporal/error_raw/05_hq.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/v5/by_subcondition/egress+temporal/confidence/05_hq.png}
+\end{minipage}
+\caption{Temporal$\times$Egress manipulation: Directional error (left) and confidence (right) by Hallucinatory Quotient group. This condition showed lowest overall errors and lowest confidence.}
+\label{fig:temporal_egress_hq}
+\end{figure}
+
+\paragraph{Other Manipulations}
+
+Object overlap violations showed modest effects on prediction accuracy. Greater deviations from natural overlap (1.0) in either direction showed trends toward increased error, though effects were smaller than those observed for egress manipulations. Temporal delay, mass ratio, and size ratio showed weaker effects on spatial prediction accuracy, though temporal manipulations affected confidence ratings and response times (see Analysis 4).
+
+
+
+
+\subsection{Analysis 3: Psychometric Predictors of Performance}
+
+\paragraph{Scale Total Score Effects}
+
+Across all three psychometric scales, higher scores showed weak associations with task performance (Figures~\ref{fig:regression_caps_error}--\ref{fig:regression_spq_conf}). PDI total score showed minimal association with directional error and confidence across most conditions. SPQ total score showed small trends toward altered directional bias and slightly reduced confidence in some manipulation conditions. CAPS total score showed minimal systematic effects on both directional error and confidence.
+
+% FIGURES: Regression Plots - CAPS
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/v5/regressions/caps/error_regressions/caps_regression_egress_error_from_physics.png}
+\caption{CAPS scores predicting directional error (error from physics) across egress angle levels. Shaded region represents 95\% confidence band. Each point represents aggregated data at each egress level.}
+\label{fig:regression_caps_error}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/v5/regressions/caps/confidence_regressions/caps_regression_egress_slider_response.png}
+\caption{CAPS scores predicting confidence ratings across egress angle levels. Shaded region represents 95\% confidence band. Higher CAPS scores show minimal association with confidence.}
+\label{fig:regression_caps_conf}
+\end{figure}
+
+% FIGURES: Regression Plots - PDI
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/v5/regressions/pdi/error_regressions/pdi_regression_egress_error_from_physics.png}
+\caption{PDI scores predicting directional error (error from physics) across egress angle levels. Shaded region represents 95\% confidence band.}
+\label{fig:regression_pdi_error}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/v5/regressions/pdi/confidence_regressions/pdi_regression_egress_slider_response.png}
+\caption{PDI scores predicting confidence ratings across egress angle levels. Shaded region represents 95\% confidence band.}
+\label{fig:regression_pdi_conf}
+\end{figure}
+
+% FIGURES: Regression Plots - SPQ
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/v5/regressions/spq/error_regressions/spq_regression_egress_error_from_physics.png}
+\caption{SPQ scores predicting directional error (error from physics) across egress angle levels. Shaded region represents 95\% confidence band.}
+\label{fig:regression_spq_error}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/v5/regressions/spq/confidence_regressions/spq_regression_egress_slider_response.png}
+\caption{SPQ scores predicting confidence ratings across egress angle levels. Shaded region represents 95\% confidence band. Higher SPQ shows slight trend toward reduced confidence at extreme egress angles.}
+\label{fig:regression_spq_conf}
+\end{figure}
+
+\paragraph{Interaction Effects}
+
+Psychometric scores showed limited moderation of manipulation effects. While some individual regression plots suggested trends (e.g., altered directional bias slopes for higher PDI in egress conditions), effects were small and did not survive correction for multiple comparisons.
+
+\paragraph{Cluster Performance Comparison}
+
+Directional error did not significantly differ between psychometric clusters (Cluster 1: $M$ = 0.035, $SD$ = 0.273; Cluster 2: $M$ = 0.036, $SD$ = 0.254), suggesting that the identified psychometric subtypes did not differ in systematic directional bias. However, clusters showed distinct patterns in confidence ratings and decision-making style (see Analyses 4 and 5).
+
+
+
+
+
+
+
+
+
+
+\subsection{Analysis 4: Mouse Trajectory Analysis and Decision Styles}
+
+\paragraph{Mouse Trajectory Patterns}
+
+Substantial individual differences emerged in mouse trajectories. Trajectory curvature ranged from near-zero (direct paths) to highly curved paths with multiple direction reversals. Curvature correlated with total movement duration ($r$ = .65) and with number of reversals ($r$ = .58), suggesting a coherent ``deliberative'' behavioral style.
+
+\paragraph{Directional Bias in Mouse Trajectories}
+
+To characterize how participants' mouse movements tracked the physics manipulations, we analyzed directional bias separately for pre-collision movement (before object contact) and post-collision movement (after object separation). Directional bias was computed as the signed angle between the mouse position vector and the physics-aligned endpoint vector (Figure~\ref{fig:mouse_bias_egress}).
+
+Mouse trajectories showed systematic tracking of egress angle manipulations. For negative egress angles (leftward violations), participants showed negative directional bias (toward physics-aligned endpoints), while for positive egress angles (rightward violations), participants showed positive directional bias (toward physics-violating endpoints). Importantly, post-collision movements showed substantially stronger directional bias than pre-collision movements, particularly for larger egress angles ($\pm$7.5\textdegree{} and $\pm$15\textdegree).
+
+% FIGURES: Mouse Directional Bias
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/v5/mouse_metrics/directional_bias_by_egress/01_directional_bias_by_egress.png}
+\caption{Mouse directional bias by egress angle level. Pre-collision (blue) and post-collision (magenta) trajectories show distinct patterns. Negative values indicate bias toward physics-aligned (correct) endpoints, positive values indicate bias toward physics-violating (incorrect) endpoints, and values near zero indicate uncertainty. Post-collision movements show stronger directional bias, particularly for larger egress violations.}
+\label{fig:mouse_bias_egress}
+\end{figure}
+
+\paragraph{Directional Bias by Psychometric Profiles}
+
+Mouse directional bias patterns varied systematically across psychometric profiles and decision styles (Figures~\ref{fig:mouse_bias_hq}). Participants with higher PDI scores showed slightly attenuated directional bias, particularly in the post-collision phase for extreme egress angles. SPQ and CAPS scores showed similar but weaker trends. Decision style (direct vs. deliberative responders) moderated these effects, with deliberative responders showing more gradual bias changes across egress levels.
+
+% FIGURES: Bias by Psychometric Scales
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/v5/mouse_metrics/directional_bias_by_scale_and_style/01i_static_hq_x_style.png}
+\caption{Mouse directional bias by Hallucinatory Quotient.}
+\label{fig:mouse_bias_hq}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/v5/mouse_metrics/directional_bias_by_scale_and_style/01d_static_by_decision_style.png}
+\caption{Mouse directional bias by decision style (Direct vs. Deliberative responders). Deliberative responders show more gradual bias transitions across egress levels, consistent with greater uncertainty during movement planning.}
+\label{fig:mouse_bias_style}
+\end{figure}
+
+\paragraph{Decision Style Classification}
+
+K-means clustering on mouse metrics identified two primary decision styles:
+\begin{itemize}
+    \item \textit{Direct responders} (60\% of participants): Short, straight trajectories with few reversals
+    \item \textit{Deliberative responders} (40\% of participants): Longer, curved trajectories with multiple corrections
+\end{itemize}
+
+Decision style was associated with psychometric profiles: individuals in Cluster 1 (high psychometric scores) were more likely to show deliberative response patterns (logistic regression: OR = 2.8, $p$ = .048).
+
+\paragraph{Decision Style and Performance}
+
+Direct responders showed slightly higher confidence ratings ($M$ = 4.3 vs. 3.9, $t$(27) = 2.1, $p$ = .045) but did not differ significantly in prediction accuracy. Deliberative responders showed stronger error-confidence correlations, suggesting more calibrated metacognitive monitoring despite lower overall confidence.
+
+\paragraph{Mouse Metrics PCA}
+
+PCA on the five mouse metrics extracted two principal components explaining 78\% of variance (Figures~\ref{fig:pca_scree}):
+\begin{itemize}
+    \item \textit{PC1 (52\% variance)}: ``Deliberation dimension''---high loadings on curvature, deviation, and movement duration
+    \item \textit{PC2 (26\% variance)}: ``Speed dimension''---high loadings on initiation time and total duration
+\end{itemize}
+
+% FIGURES: PCA on Mouse Metrics
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/v5/mouse_metrics/pca/scree_plot.png}
+\caption{PCA scree plot showing variance explained by each principal component. First two components explain 78\% of total variance in mouse trajectory metrics.}
+\label{fig:pca_scree}
+\end{figure}
+
+
+
+
+\subsection{Analysis ongoing: Model Validation and Testing}
+
+\paragraph{Parameter Effects on Error}
+
+
+% FIGURE: Parameter Effect Curves - AGENT_2_1
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures_tmp/agent_2_1_parameter_effects.png}
+\caption{Parameter effect curves for AGENT\_2\_1.}
+\label{fig:parameter_effects_2_1}
+\end{figure}
+
+% FIGURE: Parameter Effect Curves - AGENT_2_2
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures_tmp/agent_2_2_parameter_effects.png}
+\caption{Parameter effect curves for AGENT\_2\_2.}
+\label{fig:parameter_effects_2_2}
+\end{figure}
+
+% FIGURE: Parameter Effect Curves - AGENT_2_4
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures_tmp/agent_2_4_parameter_effects.png}
+\caption{Parameter effect curves for AGENT\_2\_4.}
+\label{fig:parameter_effects_2_4}
+\end{figure}
+
+
+\paragraph{Example Simulation Trials}
+
+
+% FIGURE: Agent Trajectories
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures_tmp/trial0_lambda0.01_pi_eta_v0.10_lr1.00_pi_o_prop2.00_pi_o_vis0.10.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures_tmp/trial13_lambda0.01_pi_eta_v0.10_lr0.10_pi_o_prop1.00.png}
+\end{minipage}
+\caption{Agent trajectories for Trial 0 (left) and Trial 13 (right) showing object tracking, position over time, tracking error, and free energy decomposition.}
+\label{fig:agent_trajectories}
+\end{figure}
+
+\paragraph{Parameter Recovery (with goodness of fit) }
+
+
+% FIGURE: Parameter Recovery - AGENT_2_1
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures_tmp/recovery_scatter_agent_2_1.png}
+\caption{Parameter recovery analysis for AGENT\_2\_1 showing true versus recovered parameter values. Each panel displays scatter plots for lambda, learning rate (lr), pi\_eta\_v, and pi\_o\_prop parameters. Blue points indicate best-fit parameters, orange points show human-like initialization, and dashed lines represent perfect recovery. Bias, relative error, and correlation coefficients are displayed for each parameter.}
+\label{fig:parameter_recovery_2_1}
+\end{figure}
+
+% FIGURE: Parameter Recovery - AGENT_2_2
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures_tmp/recovery_scatter_agent_2_2.png}
+\caption{Parameter recovery analysis for AGENT\_2\_2 showing true versus recovered parameter values. Each panel displays scatter plots for lambda, learning rate (lr), pi\_eta\_v, pi\_o\_prop, and pi\_o\_vis parameters. Blue points indicate best-fit parameters, orange points show human-like initialization, and dashed lines represent perfect recovery. Bias, relative error, and correlation coefficients are displayed for each parameter.}
+\label{fig:parameter_recovery_2_2}
+\end{figure}
+
+% FIGURE: Parameter Recovery - AGENT_2_4
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures_tmp/recovery_scatter_agent_2_4.png}
+\caption{Parameter recovery analysis for AGENT\_2\_4 showing true versus recovered parameter values. Each panel displays scatter plots for lambda, learning rate (lr), pi\_eta\_v, pi\_o\_prop, and pi\_o\_vis parameters. Blue points indicate best-fit parameters, orange points show human-like initialization, and dashed lines represent perfect recovery. Bias, relative error, and correlation coefficients are displayed for each parameter.}
+\label{fig:parameter_recovery_2_4}
+\end{figure}
+
+\section{Discussion}
+
+Initial pilot results indicate that there may not be a schizotypy driven effect on performance, but instead only on confidence about their beliefs of intuitive physical interactions. There may be differences in mouse pursuit of decisions, as indicated by summary statistics. The present data show the current pipeline of analyses, and planned comparisons, but with an incomplete data set. Currently, the results on scales show only the very low end of the spectrum. 
+
+% %Direct empirical evidence of this task
+% In schizophrenia patients, frontal activation during causality judgments are perceived to be indicative of inferential reasoning, or an interpretation of the task, which coincided with a  reliance on the stimuli \citep{wende_neural_2015}. 
+
+% Others argue that intuitive physics necessitates a distinct resource that is generalized across physical tasks \citep{mitko_dedicated_2024}. A physics-network may hold representations regarding perceived and future simulations of contact \citep{pramod_decoding_2025}. 
+
+
+
+% In previous modeling of end-target tracking after an occlusion, no uncertainty parameters predicted the participants predicted end-position \citep{smith_sources_2013}. \citet{smith_sources_2013} hypothesize that participants incorporate a prior on final position, for which variance from is set to a free parameter. In the previous case, center screen was included in the model as a prior on position. Here, we contrast that with a prior on trajectory endpoint. \citet{smith_sources_2013} also distinguish between perceptual and dynamics uncertainty. %where the ball lands vs its dynamics getting there? ... 
+
+% %specific conditions
+% People are generally good at inferring mass, atleast in complex scenes \citep{hamrick_inferring_2016}.
+
+% %connect to probablistic mental simulation theory
+% A key factor of probablistic mental simulation theory, this task tests to what extent simulated objects are persistent, given that tracking must extend beyond occlusion \citep{ullman 2017}. Further variations of the task could also have the participant predict "when" the object meets an objective, testing for temporal consistency as well.  
+
+% It may be that heuristics about physical interactions drive perception more than internal simulation of physical movement. 
+
+% %context and perseverative biases (which are larger in sz generally)
+% Unexplored with this trial layout is the effect of (task level) contextual information. In schizotypy, contextual information primes evidence accumulation in congruent trials \citep{weinberg_context_2025}. Future versions of this task will 
+
+% %kinematic vs perceptual
+% Indeed, when predicting ball speed in pitching movements, the integration of object speed and inferred kinematics produces the best predictions \citep{nakamoto_optimal_2022}. 
+
+% %eye movement reproductions 
+
+% Previously, an active inference model was similarly used to track eye movements, reproducing patterns of smooth pursuit \citep{adams active 2013, adams_active_2015}. Active inference is useful for modelling eye movement and response patterns in psychosis, as shown through a range of examples \citep{adams_computational_2013}. 
+
+% The task carryover that can be inferred from basic physics to more ecological tasks is not yet explored, though disruptions in social processing areas has been found with simply reframing the questions and priming a gender description to colliding objects \citep{wende_neural_2015}. More complex aspects of social inference, such as chasing or predator-prey relationships, may be disrupted by the same processes responsible for physics detection \citep{castiello_paranoid_2024}. 
+
+
+\section{Appendix}
+
+\section{notes}
+
+
+
+
+
+
+% \Require $n \geq 0$
+% \Ensure $y = x^n$
+% \State $y \gets 1$
+% \State $X \gets x$
+% \State $N \gets n$
+% \While{$N \neq 0$}
+% \If{$N$ is even}
+%     \State $X \gets X \times X$
+%     \State $N \gets \frac{N}{2}$  \Comment{This is a comment}
+% \ElsIf{$N$ is odd}
+%     \State $y \gets y \times X$
+%     \State $N \gets N - 1$
+% \EndIf
+
+
+
+\subsection{method notes}
 
 
 \bibliographystyle{unsrtnat}
 \bibliography{references}  %%% Uncomment this line and comment out the ``thebibliography'' section below to use the external .bib file (using bibtex) .
-
-
-%%% Uncomment this section and comment out the \bibliography{references} line above to use inline references.
-% \begin{thebibliography}{1}
-
-% 	\bibitem{kour2014real}
-% 	George Kour and Raid Saabne.
-% 	\newblock Real-time segmentation of on-line handwritten arabic script.
-% 	\newblock In {\em Frontiers in Handwriting Recognition (ICFHR), 2014 14th
-% 			International Conference on}, pages 417--422. IEEE, 2014.
-
-% 	\bibitem{kour2014fast}
-% 	George Kour and Raid Saabne.
-% 	\newblock Fast classification of handwritten on-line arabic characters.
-% 	\newblock In {\em Soft Computing and Pattern Recognition (SoCPaR), 2014 6th
-% 			International Conference of}, pages 312--318. IEEE, 2014.
-
-% 	\bibitem{keshet2016prediction}
-% 	Keshet, Renato, Alina Maor, and George Kour.
-% 	\newblock Prediction-Based, Prioritized Market-Share Insight Extraction.
-% 	\newblock In {\em Advanced Data Mining and Applications (ADMA), 2016 12th International 
-%                       Conference of}, pages 81--94,2016.
-
-% \end{thebibliography}
 
 
 \end{document}

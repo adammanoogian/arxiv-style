@@ -1,0 +1,32 @@
+================================================================================
+REACTION TIME QUALITY CONTROL SUMMARY
+================================================================================
+
+POPULATION RT STATISTICS (slider.rt)
+--------------------------------------------------------------------------------
+N valid trials: 2106
+Mean RT: 1.918s
+Median RT: 1.730s
+SD RT: 0.931s
+Range: [0.594s, 12.114s]
+
+OUTLIER DETECTION THRESHOLDS
+--------------------------------------------------------------------------------
+Method: 3.0 standard deviations from population mean
+Lower bound: 0.000s
+Upper bound: 4.712s
+
+TRIAL-LEVEL RESULTS
+--------------------------------------------------------------------------------
+N outlier trials: 40
+Percentage: 1.90%
+
+PARTICIPANT-LEVEL RESULTS
+--------------------------------------------------------------------------------
+Outlier ratio threshold: >20% of trials
+N participants excluded: 0
+N participants retained: 29
+
+================================================================================
+END OF REPORT
+================================================================================
