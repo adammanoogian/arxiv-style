@@ -1,0 +1,105 @@
+\documentclass{article}
+
+% Required packages
+\usepackage{graphicx}  % for \includegraphics
+\usepackage[utf8]{inputenc}
+
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{cleveref}       % smart cross-referencing
+\usepackage{lipsum}         % Can be removed after putting your text content
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{doi}
+
+\usepackage{amsmath}
+\usepackage{nomencl}
+
+\usepackage{graphicx} %for pdf rendering
+
+
+
+
+
+\begin{document}
+
+
+\subsection{selection category}
+
+Primary parent category = higher cognitive functions
+primary subcategory = imagery
+
+secondary parent category = clinical conditions of the nervous system
+secondary subcategory = psychiatric
+
+
+\subsection{Title}
+
+A dynamic causal model of the hallucinatory effects of psilocybin
+
+\subsection{Introduction}
+
+Hallucination mechanisms in schizophrenia are difficult to isolate due to disease heterogeneity and compensatory factors. Several network hypotheses implicate: (1) disrupted default mode (DMN), executive (EN), and salience network (SN) interactions; (2) aberrant hippocampal-cortical connectivity driving memory intrusions; and (3) altered thalamocortical gating. The hippocampus serves as a central hub processing sensory input and projecting to prefrontal regions, with evidence suggesting it precedes hallucinatory experiences. The dorsolateral prefrontal cortex (dlPFC), part of the EN, filters irrelevant information and shows hypoconnectivity with DMN regions in schizophrenia. Thalamic gating dysfunction is thought to drive altered perception, with hyperconnectivity to sensory regions and hypoconnectivity with prefrontal cortex. Psilocybin has the potential to offer a controlled pharmacological model, producing visual and auditory hallucinations with mechanistic similarities to psychosis.\textsuperscript{1} Here, we test these network hypotheses using spectral dynamic causal modeling (spDCM) to estimate effective connectivity changes during psilocybin administration across conditions emphasizing different modalities.\textsuperscript{2} We assess how connectivity changes relate to subjective hallucinatory experiences, aiming to identify effective connectivity differences underlying psilocybin-induced hallucinations.
+
+
+\subsection{Methods}
+
+Sixty healthy, psychedelic-naive participants (aged 18-55) completed an open-label, baseline-controlled study.\textsuperscript{3} Baseline and psilocybin (19mg oral) sessions occurred two weeks apart. Approximately 80 minutes post-dose, participants underwent fMRI during four conditions: eyes-closed rest, guided meditation, ethereal music listening, and passive movie watching (silent moving clouds). Subjective experiences were assessed using the 11-Dimensional Altered States of Consciousness (11D-ASC) questionnaire ~360 minutes post-dose. A composite of audiovisual, complex, and perceptual subscales indexed overall hallucinatory experience.
+
+Bilateral regions of interest were specified using AAL atlas coordinates: dorsolateral prefrontal cortex (dlPFC / frontal\_mid), hippocampus (Hipp), superior occipital gyrus (SOG / occipital\_sup), medial temporal gyrus (MTG / temporal\_mid), and thalamus (Thal). A fully-connected spDCM model without exogenous inputs was specified for each subject and session. SpDCM estimates effective connectivity (cross-spectral density) capturing the causal influence one region exerts over another.
+
+Second-level analyses used Parametric Empirical Bayes (PEB) to test group-level effects. For each condition, we assessed: (1) pre- vs. post-psilocybin connectivity changes; (2) behavioral associations between post-dose connectivity and 11D-ASC hallucinatory subscales. Behavioral association models were constrained to connections showing significant psilocybin-induced changes. Bayesian model averaging identified parameters with strong evidence (posterior probability $>$ 0.99). Connectivity is reported in Hz; behavioral associations as normalized beta coefficients.
+
+\begin{figure}[htbp]
+    \centering
+    % \hspace*{-0.25in}  
+    \includegraphics[width=\textwidth]{fig/peb_psilocybin_methods.png}    \caption{Methods: Layout of the Model Selection used in two PEB analyses for each experimental condition}
+    \label{fig:m1}
+
+\end{figure}
+
+\subsection{Results}
+
+Psilocybin induced widespread connectivity changes with a consistent lateralized hippocampal pattern across conditions. During rest, the left hippocampus broadly inhibited contralateral sensory regions (lHipp$\rightarrow$rSOG: $-$0.15 Hz; lHipp$\rightarrow$rMTG: $-$0.16 Hz) and thalamus (lHipp$\rightarrow$rThal: $-$0.13 Hz). In contrast, the right hippocampus shifted toward excitation, with rHipp$\rightarrow$lMTG inhibition weakening (from $-$0.21 to $-$0.09 Hz) and rHipp$\rightarrow$rdlPFC becoming excitatory (+0.10 Hz). This asymmetry---left hippocampal inhibition, right hippocampal excitation---persisted across rest and meditation conditions.
+
+Behavioral associations revealed left hippocampal output as the primary correlate of hallucination severity. During rest, lHipp inhibition of rSOG ($\beta$=0.12), rMTG ($\beta$=0.08), and rThal ($\beta$=0.16) each positively correlated with 11D-ASC hallucinatory subscales. The strongest association occurred during movie viewing, where lHipp$\rightarrow$lThal inhibition ($-$0.13 Hz) predicted symptoms ($\beta$=0.20).
+
+Thalamic contributions showed an unexpected inverse pattern. Sensory-driven thalamic inhibition was inversely related to hallucinations: lSOG$\rightarrow$lThal ($\beta$=$-$0.08) and lMTG$\rightarrow$lThal ($\beta$=$-$0.08) during movie. Thalamic excitation also inversely correlated with symptoms ($\beta$=$-$0.11). However, thalamic outputs to dlPFC showed positive associations---rThal$\rightarrow$ldlPFC excitation (+0.08 Hz) correlated with symptoms ($\beta$=0.09) during movie, and lThal$\rightarrow$rdlPFC inhibition ($-$0.08 Hz) correlated during rest ($\beta$=0.10).
+
+The dlPFC displayed asymmetric top-down modulation. During rest, ldlPFC inhibited contralateral hippocampus ($-$0.12 Hz), SOG ($-$0.07 Hz), and MTG ($-$0.13 Hz), while rdlPFC excited these same regions (+0.12, +0.11, +0.15 Hz respectively). Critically, ldlPFC$\rightarrow$rHipp inhibition inversely correlated with hallucinations ($\beta$=$-$0.08), suggesting intact prefrontal control reduces symptoms. During movie, dlPFC cross-excitation increased (R$\rightarrow$L: +0.17 Hz change; L$\rightarrow$R: +0.12 Hz from n.s.).
+
+Condition-specific patterns emerged in sensory regions. During music, temporal cortex became broadly inhibitory, with lHipp$\rightarrow$contralateral MTG inhibition correlating with symptoms. Auditory cortex excitation of right dlPFC (rMTG$\rightarrow$rdlPFC: +0.08 Hz) correlated with hallucinations during rest ($\beta$=0.10), potentially indicating auditory-prefrontal coupling in the absence of external input. During meditation, thalamic excitation of left hippocampus---unique to this condition---correlated with symptoms, suggesting internally-directed states engage distinct thalamo-hippocampal dynamics.
+
+\begin{figure}[htbp]
+    \centering
+    % \hspace*{-0.25in}  
+    \includegraphics[width=\textwidth]{fig/m1_peb_panel_2x2.pdf}    \caption{Model 1: For captions a-c, the strength of each connection is shown in Hz. Self connections are transformed (f(x) = -log(2x)) for interpretability. a) The strength of each connection during the "pre" session b) The strength of each connection during the "post" session, with psilocybin administration c) The difference between the post and pre conditions. The heatmap reflects the strengthening or weakening of a connection, as calculated as far the connection strength moves away or toward, respectively, 0. The sign of the connection represents whether it is excitatory or inhibitory during psilocybin; an asterisk is used to indicate the connection changed the sign of its connection. d) The association of the behavioral variable to each connection is shown as indicated by the heatmap color. Dotted boxes without color show possible, or "turned on", correlations explored in this model, as motivated by the connections changed due to psilocybin administration. }
+    \label{fig:m2}
+
+\end{figure}
+
+
+\subsection{Conclusion}
+
+This study reveals condition-dependent effective connectivity patterns underlying psilocybin-induced hallucinations in regions implicated in schizophrenia. The hippocampus emerges as a central hub, with lateralized effects: left hippocampal inhibition of sensory cortices and thalamus consistently predicted hallucination severity, supporting the "memory-driven effect" hypothesis. Right hippocampal excitation of dlPFC during auditory stimulation may indicate connections relevant to delusional interpretation of perceptual experiences.\textsuperscript{4}
+
+Contrary to predictions, thalamic influence on frontal regions was inversely related to symptoms, questioning the broad applicability of thalamic gating models to psilocybin. Sensory-driven bottom-up inhibition of thalamus showed inverse correlations with hallucinations, suggesting hippocampal and top-down modulation better explain symptom severity than disrupted sensory filtering.
+
+The dlPFC showed asymmetric modulation of sensory and memory regions, with condition-dependent patterns suggesting complex executive network involvement. These findings provide mechanistic insights into hallucination networks using a controlled pharmacological model, highlighting the importance of hippocampal-cortical interactions and questioning purely thalamocortical accounts of altered perception.
+
+\subsection{References}
+
+\citep{leptourgos_hallucinations_2020, friston_dcm_2014, novelli_psiconnect_2025, uscatescu_effective_2021}
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}  %%% Uncomment this line and comment out the ``thebibliography'' section below to use the external .bib file (using bibtex) .
+
+\end{document}
